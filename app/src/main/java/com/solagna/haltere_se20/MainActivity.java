@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide(); //aqui a mágica
+        getSupportActionBar().hide(); //aqui a magica
         setContentView(R.layout.tela_login);
     }
 }
