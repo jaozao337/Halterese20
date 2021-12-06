@@ -11,4 +11,6 @@
     <color name="cor2">#0051A8</color>
     <color name="cor3">#0051A8</color>
     <color name="escura">#100C04</color>
+    <color name="cor_principal_mais_escura">#94F5A825</color>
+    <string name="CadastrarNovoTreinador">Cadastrar Novo Treinador</string>
 </resources>

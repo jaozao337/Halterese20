@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btCadastrarTreinador"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="BottomAppBar" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -47,10 +48,10 @@
     <Button
         android:id="@+id/btAlunos"
         android:layout_width="339dp"
-        android:layout_height="254dp"
+        android:layout_height="200dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:fontFamily="@font/roboto"
@@ -61,13 +62,14 @@
         app:backgroundTint="@color/cor_principal"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottomAppBar" />
 
     <Button
         android:id="@+id/btTreinos"
         android:layout_width="339dp"
-        android:layout_height="254dp"
+        android:layout_height="200dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
@@ -84,5 +86,44 @@
         app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btAlunos" />
+
+    <Button
+        android:id="@+id/btCadastrarNovoTreinador"
+        android:layout_width="145dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/CadastrarNovoTreinador"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/cor_principal"
+        app:cornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btTreinos" />
+
+    <Button
+        android:id="@+id/btCadastrarNovoTreinador2"
+        android:layout_width="145dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/ModificarTreinadores"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/cor_principal"
+        app:cornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btCadastrarNovoTreinador"
+        app:layout_constraintTop_toBottomOf="@+id/btTreinos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

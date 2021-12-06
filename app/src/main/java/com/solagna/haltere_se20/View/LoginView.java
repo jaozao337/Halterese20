@@ -2,7 +2,6 @@ package com.solagna.haltere_se20.View;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
@@ -32,7 +31,7 @@ public class LoginView extends AppCompatActivity {
     }
 
     private boolean getCampos(){
-        EditText edtLogin = findViewById(R.id.inputLogin);
+        EditText edtLogin = findViewById(R.id.inputNome);
         EditText edtSenha = findViewById(R.id.inputSenha);
          login = edtLogin.getText().toString();
          senha = edtSenha.getText().toString();
