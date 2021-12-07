@@ -8,10 +8,11 @@ import android.widget.*;
 import androidx.appcompat.app.*;
 
 import com.solagna.haltere_se20.Controller.LoginController;
+import com.solagna.haltere_se20.Controller.TreinadorController;
 import com.solagna.haltere_se20.R;
 
 public class LoginView extends AppCompatActivity {
-    private Button btLogin;
+    private Button btLogin, btSouTreinador;
     private String login, senha;
 
     @Override
@@ -23,12 +24,24 @@ public class LoginView extends AppCompatActivity {
         setContentView(R.layout.tela_login);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         btLogin = findViewById(R.id.btEntrar);
+        btSouTreinador=findViewById(R.id.btEntrarTreinador);
         criarListeners();
     }
 
     private void criarListeners(){
         botaoLogin();
+        botaoEntrarTreinador();
     }
+private void botaoEntrarTreinador(){
+    btSouTreinador.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
+            startActivity(intent);
+            finish();
+        }
+    });
+}
 
     private boolean getCampos(){
         EditText edtLogin = findViewById(R.id.inputNome);
@@ -47,6 +60,7 @@ public class LoginView extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+            //aqui ele tem que mandar pro controller pra mandar pro back
                if(getCampos()) {
                    if (LoginController.realizarLogin(login, senha)) {
                        Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
