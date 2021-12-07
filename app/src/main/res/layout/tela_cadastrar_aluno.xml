@@ -10,7 +10,7 @@
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/black">
 
     <EditText
@@ -168,7 +168,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/roboto"
-        android:text="Adicionar ALUNOs"
+        android:text="@string/AdicionarAluno"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -198,6 +198,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/PESO"
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dumbell" />

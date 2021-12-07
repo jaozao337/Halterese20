@@ -84,4 +84,8 @@
     <string name="NomeDoTreinador">Nome Treinador</string>
     <string name="AdicionarExercicios">Adicionar Exercícios</string>
     <string name="AdicionarExercicio">Adicionar Exercício</string>
+    <string name="BotaoBuscar">Botao de buscar</string>
+    <string name="PESO">PESO</string>
+    <string name="AdicionarAluno">Adicionar Aluno</string>
+    <string name="Editar">Editar</string>
 </resources>

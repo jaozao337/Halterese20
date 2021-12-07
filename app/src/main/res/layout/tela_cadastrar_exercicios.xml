@@ -10,7 +10,7 @@
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/black">
 
         <EditText
@@ -64,7 +64,8 @@
             android:textColorLink="@color/cor_principal"
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txtTipoMusc"
-            app:layout_constraintStart_toStartOf="@+id/ptTipoExercicio" />
+            app:layout_constraintStart_toStartOf="@+id/ptTipoExercicio"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
             android:id="@+id/txtTipoMusc"
@@ -252,6 +253,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/PESO"
             app:layout_constraintStart_toStartOf="@+id/bottomAppBar"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/dumbell" />
