@@ -81,4 +81,11 @@
     <string name="BuscarExercicios">Buscar Exercícios:</string>
     <string name="NomeExercicio">Nome Exercício</string>
     <string name="DigiteEmail">Digite o E-mail do Aluno</string>
+    <string name="DigiteEmailTreinador">Digite Aqui o E-mail do Treinador</string>
+    <string name="AdicionarTreino">Adicionar Treino</string>
+    <string name="DigiteNomeDoTreino">Digite Aqui o Nome do Treino</string>
+    <string name="DuracaoDoTreino">Digite Aqui a Duracão do Treino</string>
+    <string name="DescricaoDoTreino">Digite Aqui a Descricão do Treino</string>
+    <string name="AdicionarTreino">Adicionar Treino</string>
+    <string name="SeriesRepeticoes">Series/Repetições</string>
 </resources>

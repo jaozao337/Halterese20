@@ -43,7 +43,7 @@
         android:textColorHighlight="@color/cor_principal"
         android:textColorHint="@color/cor_principal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ptAddPesoAluno" />
 
@@ -97,7 +97,7 @@
         android:textColorHighlight="@color/cor_principal"
         android:textColorHint="@color/cor_principal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ptAddEmailAluno" />
 
@@ -105,7 +105,7 @@
         android:id="@+id/ptAddCPFAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="@font/roboto_light"
@@ -115,7 +115,7 @@
         android:textColorHighlight="@color/cor_principal"
         android:textColorHint="@color/cor_principal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ptAddNecessidadesAluno" />
 

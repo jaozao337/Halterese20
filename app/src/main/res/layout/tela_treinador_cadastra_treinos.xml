@@ -11,15 +11,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:background="@color/black">
 
         <EditText
-            android:id="@+id/ptAddCPFTreinador"
+            android:id="@+id/ptAddNomeTreino"
             android:layout_width="322dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/CpfTreinador"
+            android:hint="@string/DigiteNomeDoTreino"
             android:inputType="number"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
@@ -27,31 +28,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddNomeTreinador" />
+            app:layout_constraintTop_toBottomOf="@+id/bottomAppBar" />
 
         <EditText
-            android:id="@+id/ptAddSenhaTreinador"
+            android:id="@+id/ptAddDuracaoTreino"
             android:layout_width="322dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/SenhaTreinador"
-            android:inputType="textPassword"
-            android:textColor="@color/cor_principal"
-            android:textColorHighlight="@color/cor_principal"
-            android:textColorHint="@color/cor_principal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddCPFTreinador" />
-
-        <EditText
-            android:id="@+id/ptAddSalarioTreinador"
-            android:layout_width="322dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="@string/SalararioTreinador"
+            android:hint="@string/DuracaoDoTreino"
             android:inputType="number"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
@@ -59,59 +44,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddSenhaTreinador" />
+            app:layout_constraintTop_toBottomOf="@+id/ptAddNomeTreino" />
 
         <EditText
-            android:id="@+id/ptAddEmailTreinador"
+            android:id="@+id/ptAddDescricaoTreino"
             android:layout_width="322dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/DigiteEmailTreinador"
+            android:hint="@string/DescricaoDoTreino"
             android:inputType="number"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddSalarioTreinador" />
-
-        <EditText
-            android:id="@+id/ptAddNomeTreinador"
-            android:layout_width="322dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/NomeTreinador"
-            android:inputType="textPersonName"
-            android:shadowColor="@color/cor3"
-            android:textColor="@color/cor_principal"
-            android:textColorHighlight="@color/cor_principal"
-            android:textColorHint="@color/cor_principal"
-            android:textColorLink="@color/cor3"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bottomAppBar"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toBottomOf="@+id/ptAddDuracaoTreino" />
 
         <Button
-            android:id="@+id/btAdicionarTreinador"
+            android:id="@+id/btAdicionarTreino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/AdicionarTreinador"
+            android:text="@string/AdicionarTreino"
             android:textColor="@color/black"
             android:textSize="26sp"
             android:textStyle="bold"
             app:backgroundTint="@color/cor_principal"
             app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddEmailTreinador"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -144,13 +110,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:text="@string/AdicionarTreinador"
+            android:text="@string/AdicionarTreino"
             android:textColor="@color/escura"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar"
             app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="409dp"
+            android:layout_height="496dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btAdicionarTreino"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptAddDescricaoTreino">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/cor_principal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

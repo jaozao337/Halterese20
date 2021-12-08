@@ -14,10 +14,10 @@
         android:background="@color/black">
 
         <EditText
-            android:id="@+id/ptEmailAluno"
+            android:id="@+id/ptCPFTreinador"
             android:layout_width="322dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/CpfTreinador"
             android:inputType="number"
@@ -25,14 +25,15 @@
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptNomeAluno" />
+            app:layout_constraintTop_toBottomOf="@+id/ptNomeTreinador" />
 
         <EditText
-            android:id="@+id/ptPesoAluno"
+            android:id="@+id/ptSenhaTreinador"
             android:layout_width="322dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/SenhaTreinador"
             android:inputType="textPassword"
@@ -40,14 +41,15 @@
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptEmailAluno" />
+            app:layout_constraintTop_toBottomOf="@+id/ptCPFTreinador" />
 
         <EditText
-            android:id="@+id/ptAddAlturaAluno"
+            android:id="@+id/ptSalarioTreinador"
             android:layout_width="322dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/SalararioTreinador"
             android:inputType="number"
@@ -55,14 +57,30 @@
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptPesoAluno" />
+            app:layout_constraintTop_toBottomOf="@+id/ptSenhaTreinador" />
 
         <EditText
-            android:id="@+id/ptNomeAluno"
+            android:id="@+id/ptEmailTreinador"
             android:layout_width="322dp"
             android:layout_height="48dp"
-            android:layout_marginTop="132dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/DigiteEmailTreinador"
+            android:inputType="number"
+            android:textColor="@color/cor_principal"
+            android:textColorHighlight="@color/cor_principal"
+            android:textColorHint="@color/cor_principal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptSalarioTreinador" />
+
+        <EditText
+            android:id="@+id/ptNomeTreinador"
+            android:layout_width="322dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:fontFamily="@font/roboto"
             android:hint="@string/NomeTreinador"
@@ -73,26 +91,26 @@
             android:textColorHint="@color/cor_principal"
             android:textColorLink="@color/cor3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottomAppBar"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/btExcluirAluno"
+            android:id="@+id/btModificarTreinador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
             android:text="@string/ModificarTreinador"
             android:textColor="@color/black"
             android:textSize="26sp"
-            android:layout_marginTop="32dp"
             android:textStyle="bold"
             app:backgroundTint="@color/cor_principal"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddAlturaAluno"
+            app:layout_constraintTop_toBottomOf="@+id/ptEmailTreinador"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
