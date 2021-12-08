@@ -19,7 +19,7 @@
         <entry key="..\:/Users/guand/Desktop/Sexto semestre/Mat/Halterese20/app/src/main/res/layout/tela_treinos_treinador.xml" value="0.3875" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/drawable/ic_lupa.xml" value="0.164" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/font/roboto_light.xml" value="0.2109375" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_treinador_aluno.xml" value="0.5626423690205011" />
+        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_treinador_aluno.xml" value="0.536" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_alterar_aluno.xml" value="0.2" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_alterar_treinador.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_aluno_cronograma.xml" value="0.19923044035912782" />
@@ -34,14 +34,15 @@
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_principal_aluno.xml" value="0.16" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_principal_treinador.xml" value="0.2" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_secundaria_aluno.xml" value="0.1" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_dados_alunos.xml" value="0.19604543542280184" />
+        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_dados_alunos.xml" value="0.264" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_dados_treinador.xml" value="0.19604543542280184" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_treino.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_treino_aluno.xml" value="0.264" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_busca_alunos.xml" value="0.19923044035912782" />
+        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_busca_treinadores.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_buscar_exercicios.xml" value="0.19604543542280184" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_buscar_treino.xml" value="0.264" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_alunos.xml" value="0.19923044035912782" />
+        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_alunos.xml" value="0.4" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_exercicios.xml" value="0.16589434661723818" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_treinadores.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_criar_treino.xml" value="0.264" />

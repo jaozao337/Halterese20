@@ -43,7 +43,7 @@
     <string name="SenhaTreinador">Digite Aqui a Senha Do Treinador</string>
     <string name="SalararioTreinador">Digite Aqui o Salario Do Treinador</string>
     <string name="CPFAluno">Digite Aqui o CPF do Aluno</string>
-    <string name="OBSALuno">Digte Aqui Observaões Sobre o Aluno</string>
+    <string name="OBSALuno">Digte Aqui Observacões Sobre o Aluno</string>
     <string name="DataAluno">Digite A Data De Nascimento Do Aluno</string>
     <string name="CargaHoraria">Digite A Carga Horaria Do Aluno</string>
     <string name="SenhaAluno">Digite Aqui a Senha Do Aluno</string>
@@ -80,4 +80,5 @@
     <string name="ModificarExercicios">Modificar Exercícios</string>
     <string name="BuscarExercicios">Buscar Exercícios:</string>
     <string name="NomeExercicio">Nome Exercício</string>
+    <string name="DigiteEmail">Digite o E-mail do Aluno</string>
 </resources>

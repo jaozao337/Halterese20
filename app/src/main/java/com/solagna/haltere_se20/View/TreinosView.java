@@ -47,7 +47,7 @@ public class TreinosView extends AppCompatActivity {
         setContentView(R.layout.tela_treinador_buscar_exercicios);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        btAddExercicios = findViewById(R.id.btAdicionarExercicio);
+        btAddExercicios = findViewById(R.id.btExcluirAluno);
        // btAddTreinos = findViewById(R.id.btAddTreino);
 
         criarListeners();

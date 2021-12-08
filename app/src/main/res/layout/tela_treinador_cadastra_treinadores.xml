@@ -14,7 +14,7 @@
         android:background="@color/black">
 
         <EditText
-            android:id="@+id/ptIdadeAluno"
+            android:id="@+id/ptEmailAluno"
             android:layout_width="322dp"
             android:layout_height="48dp"
             android:layout_marginTop="32dp"
@@ -41,10 +41,10 @@
             android:textColorHint="@color/cor_principal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptIdadeAluno" />
+            app:layout_constraintTop_toBottomOf="@+id/ptEmailAluno" />
 
         <EditText
-            android:id="@+id/ptAlturaAluno"
+            android:id="@+id/ptAddAlturaAluno"
             android:layout_width="322dp"
             android:layout_height="48dp"
             android:layout_marginTop="32dp"
@@ -79,7 +79,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/btAdicionarExercicio"
+            android:id="@+id/btExcluirAluno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"

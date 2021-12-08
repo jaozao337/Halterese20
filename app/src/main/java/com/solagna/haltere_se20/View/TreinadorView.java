@@ -76,7 +76,7 @@ public class TreinadorView extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         btAlunos = findViewById(R.id.btAlunos);
-        btTreinos = findViewById(R.id.btExercicios);
+        btTreinos = findViewById(R.id.btTreinos);
         btCadastrarTreinador = findViewById(R.id.btCadastrarNovoTreinador);
         btModificarTreinador = findViewById(R.id.btModificarTreinador);
 

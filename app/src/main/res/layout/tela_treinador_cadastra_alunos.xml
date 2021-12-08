@@ -14,42 +14,27 @@
     android:background="@color/black">
 
     <EditText
-        android:id="@+id/ptIdadeAluno"
+        android:id="@+id/ptAddEmailAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/roboto_light"
-        android:hint="@string/alunoIdade"
+        android:hint="@string/DigiteEmail"
         android:inputType="number"
         android:textColor="@color/cor_principal"
         android:textColorHighlight="@color/cor_principal"
         android:textColorHint="@color/cor_principal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptNomeAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptAddNomeAluno" />
 
     <EditText
-        android:id="@+id/ptPesoAluno"
+        android:id="@+id/ptAddAlturaAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:fontFamily="@font/roboto_light"
-        android:hint="@string/alunoPeso"
-        android:inputType="number"
-        android:textColor="@color/cor_principal"
-        android:textColorHighlight="@color/cor_principal"
-        android:textColorHint="@color/cor_principal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptIdadeAluno" />
-
-    <EditText
-        android:id="@+id/ptAlturaAluno"
-        android:layout_width="322dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/roboto_light"
         android:hint="@string/alunoAltura"
@@ -58,30 +43,15 @@
         android:textColorHighlight="@color/cor_principal"
         android:textColorHint="@color/cor_principal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptPesoAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptAddPesoAluno" />
 
     <EditText
-        android:id="@+id/ptDataNascimento"
+        android:id="@+id/ptAddNecessidadesAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:fontFamily="@font/roboto_light"
-        android:hint="@string/DataAluno"
-        android:inputType="date"
-        android:textColor="@color/cor_principal"
-        android:textColorHighlight="@color/cor_principal"
-        android:textColorHint="@color/cor_principal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAlturaAluno" />
-
-    <EditText
-        android:id="@+id/ptNecessidadesAluno"
-        android:layout_width="322dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/roboto_light"
         android:hint="@string/OBSALuno"
@@ -90,63 +60,15 @@
         android:textColorHighlight="@color/cor_principal"
         android:textColorHint="@color/cor_principal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptDataNascimento" />
+        app:layout_constraintTop_toBottomOf="@+id/ptAddAlturaAluno" />
 
     <EditText
-        android:id="@+id/ptCPFAluno"
+        android:id="@+id/ptAddNomeAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/roboto_light"
-        android:hint="@string/CPFAluno"
-        android:inputType="number"
-        android:textColor="@color/cor_principal"
-        android:textColorHighlight="@color/cor_principal"
-        android:textColorHint="@color/cor_principal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptNecessidadesAluno" />
-
-    <EditText
-        android:id="@+id/ptCargaHoraria"
-        android:layout_width="322dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:fontFamily="@font/roboto_light"
-        android:hint="@string/CargaHoraria"
-        android:inputType="number"
-        android:textColor="@color/cor_principal"
-        android:textColorHighlight="@color/cor_principal"
-        android:textColorHint="@color/cor_principal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptCPFAluno" />
-
-    <EditText
-        android:id="@+id/ptSenhaAluno"
-        android:layout_width="322dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:fontFamily="@font/roboto_light"
-        android:hint="@string/SenhaAluno"
-        android:inputType="textPassword"
-        android:textColor="@color/cor_principal"
-        android:textColorHighlight="@color/cor_principal"
-        android:textColorHint="@color/cor_principal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptCargaHoraria" />
-
-    <EditText
-        android:id="@+id/ptNomeAluno"
-        android:layout_width="322dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/roboto_light"
         android:hint="@string/addAlunoNome"
@@ -157,16 +79,85 @@
         android:textColorHint="@color/cor_principal"
         android:textColorLink="@color/cor3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomAppBar"
         tools:ignore="TouchTargetSizeCheck" />
 
+    <EditText
+        android:id="@+id/ptAddPesoAluno"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/alunoPeso"
+        android:inputType="number"
+        android:textColor="@color/cor_principal"
+        android:textColorHighlight="@color/cor_principal"
+        android:textColorHint="@color/cor_principal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptAddEmailAluno" />
+
+    <EditText
+        android:id="@+id/ptAddCPFAluno"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/CPFAluno"
+        android:inputType="number"
+        android:textColor="@color/cor_principal"
+        android:textColorHighlight="@color/cor_principal"
+        android:textColorHint="@color/cor_principal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptAddNecessidadesAluno" />
+
+    <EditText
+        android:id="@+id/ptAddCargaHoraria"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/CargaHoraria"
+        android:inputType="number"
+        android:textColor="@color/cor_principal"
+        android:textColorHighlight="@color/cor_principal"
+        android:textColorHint="@color/cor_principal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptAddCPFAluno" />
+
+    <EditText
+        android:id="@+id/ptAddSenhaAluno"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/SenhaAluno"
+        android:inputType="textPassword"
+        android:textColor="@color/cor_principal"
+        android:textColorHighlight="@color/cor_principal"
+        android:textColorHint="@color/cor_principal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptAddCargaHoraria" />
+
     <Button
-        android:id="@+id/btAdicionarExercicio"
+        android:id="@+id/btAdicionarAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
         android:text="@string/AdicionarAluno"
         android:textColor="@color/black"
@@ -174,9 +165,9 @@
         android:textStyle="bold"
         app:backgroundTint="@color/cor_principal"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptAddSenhaAluno" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"

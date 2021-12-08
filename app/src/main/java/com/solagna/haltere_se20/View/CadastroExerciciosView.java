@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -34,6 +35,8 @@ public class CadastroExerciciosView extends AppCompatActivity {
 
                 if(nome.isEmpty()||peso.isEmpty()||repeticoes.isEmpty()||series.isEmpty()||descricao.isEmpty()||duracao.isEmpty()){
                     //toast mandando preencher tudo
+                    Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);
+                    toast.show();
                 }else{
                     ExercicioController ec = new ExercicioController();
                     ec.cadastrarExercicio(nome,tipo, peso,repeticoes,series,descricao,duracao);

@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bottomAppBar" />
 
     <Button
-        android:id="@+id/btExercicios"
+        android:id="@+id/btTreinos"
         android:layout_width="339dp"
         android:layout_height="200dp"
         android:layout_marginStart="32dp"
@@ -77,7 +77,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:fontFamily="@font/roboto"
-        android:text="@string/Exercicios"
+        android:text="treino"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -107,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btExercicios" />
+        app:layout_constraintTop_toBottomOf="@+id/btTreinos" />
 
     <Button
         android:id="@+id/btModificarTreinador"
@@ -125,6 +125,6 @@
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btCadastrarNovoTreinador"
-        app:layout_constraintTop_toBottomOf="@+id/btExercicios" />
+        app:layout_constraintTop_toBottomOf="@+id/btTreinos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
