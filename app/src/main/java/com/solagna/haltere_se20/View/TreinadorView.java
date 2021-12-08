@@ -72,11 +72,11 @@ public class TreinadorView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.tela_principal_treinador);
+        setContentView(R.layout.tela_treinador_principal);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         btAlunos = findViewById(R.id.btAlunos);
-        btTreinos = findViewById(R.id.btTreinos);
+        btTreinos = findViewById(R.id.btExercicios);
         btCadastrarTreinador = findViewById(R.id.btCadastrarNovoTreinador);
         btModificarTreinador = findViewById(R.id.btModificarTreinador);
 

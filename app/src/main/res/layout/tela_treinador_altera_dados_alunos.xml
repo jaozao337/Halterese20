@@ -181,12 +181,12 @@
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btModificarDados2"
+            app:layout_constraintStart_toEndOf="@+id/btModificarDadosDoAluno"
             app:layout_constraintTop_toBottomOf="@+id/ptSenhaAluno"
             app:layout_constraintVertical_bias="0.531" />
 
         <Button
-            android:id="@+id/btModificarDados2"
+            android:id="@+id/btModificarDadosDoAluno"
             android:layout_width="0dp"
             android:layout_height="82dp"
             android:layout_marginStart="16dp"

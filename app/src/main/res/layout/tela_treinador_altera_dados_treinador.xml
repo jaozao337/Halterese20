@@ -82,17 +82,18 @@
             android:id="@+id/btAdicionarExercicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
             android:fontFamily="@font/roboto"
             android:text="@string/ModificarTreinador"
             android:textColor="@color/black"
             android:textSize="26sp"
+            android:layout_marginTop="32dp"
             android:textStyle="bold"
             app:backgroundTint="@color/cor_principal"
             app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptAlturaAluno"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"

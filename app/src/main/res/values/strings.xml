@@ -1,14 +1,6 @@
 <resources>
-    <string name="app_name">aplicativo</string>
-    <string name="title_activity_escolha_servico">escolhaServico</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="app_name">Haltere-se 2.0</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="nome">Digite Aqui Seu Nome</string>
     <string name="addAlunoNome">Digite Aqui o Nome do Aluno</string>
     <string name="alunoIdade">Digite Aqui a Idade do Aluno</string>
@@ -16,8 +8,6 @@
     <string name="alunoAltura">Digite Aqui a Altura do Aluno</string>
     <string name="alunoGordura">Digite Aqui o Percentual de Gordura</string>
     <string name="alunoNecessidades">Digite Aqui as Necessidades Especiais</string>
-    <string name="labelAlunosTreino">O Nome do Serviço Aparecerá Aqui</string>
-    <string name="alterar_Servico">Escolha um Serviço Para Alterá-lo</string>
 
     <string name="addExercicio">Adicionar Exercicio</string>
     <string name="addTreino">Adicionar Treino</string>
@@ -31,10 +21,6 @@
     <string name="exercicioTempo">Digite Aqui a Duração do Exercício</string>
     <string name="exercicioTipoMusc">Muscular</string>
     <string name="exercicioTipoCard">Cardio</string>
-
-    <string name="treinoNome">Digite aqui o nome do treino</string>
-    <string name="treinoDuracao">Digite aqui a duração do treino</string>
-    <string name="treinoDescicao">Digite aqui a descricao do treino</string>
     <string name="treinoExercicio">Exercicio</string>
 
     <string name="digite_senha">Digite sua senha</string>
@@ -43,25 +29,11 @@
     <string name="senha">Senha</string>
     <string name="btEntrar">Entrar</string>
     <string name="btCadastro">Cadastre-se</string>
-    <string name="naoPagar">Caso vá pagar presencialmente pode clicar aqui</string>
-    <string name="placeholderagendamento">Essa movimentação foi criada manualmente</string>
-
-    <string name="alunoNome">aqui estara o nome do aluno</string>
-    <string name="labelAlunos">Modificar treinos dos alunos</string>
-
 
     <string name="telefoneCadastro">Telefone:</string>
     <string name="senhaCadastro">Senha:</string>
     <string name="CadastrarCadastro">Concluir Cadastro</string>
-    <string name="AttServicoConcluido">Concluir Cadastro</string>
-    <string name="title_activity_calendario_funcionario">calendarioFuncionario</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
-    <string name="channel_name">Nome canal</string>
-    <string name="channel_description">Descricao canal</string>
+
     <string name="title_activity_principal_treinador">principalTreinador</string>
     <string name="CadastrarNovoTreinador">Cadastrar Novo Treinador</string>
     <string name="AdicionarTreinador">Adicionar Treinador</string>
@@ -85,7 +57,27 @@
     <string name="AdicionarExercicios">Adicionar Exercícios</string>
     <string name="AdicionarExercicio">Adicionar Exercício</string>
     <string name="BotaoBuscar">Botao de buscar</string>
-    <string name="PESO">PESO</string>
+    <string name="PESO">Imagem de um halter</string>
     <string name="AdicionarAluno">Adicionar Aluno</string>
     <string name="Editar">Editar</string>
+    <string name="Descricao">Descrição</string>
+    <string name="PesoAltura">Peso/Altura</string>
+    <string name="email">email</string>
+    <string name="CPF">CPF</string>
+    <string name="Nome">Nome</string>
+    <string name="Alunos">Alunos:</string>
+    <string name="ModificarTreinoAluno">Modificar Treino Aluno</string>
+    <string name="Aluno">Aluno:</string>
+    <string name="AquiVaiONome">Aqui Vai O Nome Do Aluno</string>
+    <string name="EditarDadosALuno">Editar Dados Aluno</string>
+    <string name="EditarTreino">Editar Treino</string>
+    <string name="ModifcarTreino">Modifcar Treino</string>
+    <string name="BuscarTreino">Buscar Treino</string>
+    <string name="NomeDoTreino">Nome Do Treino</string>
+    <string name="CriarTreino">Criar Treino</string>
+
+    <string name="Exercicios">Exercícios</string>
+    <string name="ModificarExercicios">Modificar Exercícios</string>
+    <string name="BuscarExercicios">Buscar Exercícios:</string>
+    <string name="NomeExercicio">Nome Exercício</string>
 </resources>

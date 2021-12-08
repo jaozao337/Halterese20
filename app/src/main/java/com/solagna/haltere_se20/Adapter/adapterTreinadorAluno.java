@@ -8,24 +8,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.solagna.haltere_se20.Model.Aluno;
+import com.solagna.haltere_se20.R;
 
 import java.util.List;
 
-/*
 public class adapterTreinadorAluno extends RecyclerView.Adapter<adapterTreinadorAluno.MyViewHolder> {
+    public RecyclerView rvAlunos;
     private List<Aluno> listaAlunos;
 
     public adapterTreinadorAluno(List<Aluno> servicinhos) {
+
         listaAlunos = servicinhos;
     }
-
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemLista = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.activity_adapter_treinador_aluno, parent, false);
+                inflate(R.layout.adapter_treinador_aluno, parent, false);
         return new MyViewHolder(itemLista);
     }
 
@@ -33,8 +34,7 @@ public class adapterTreinadorAluno extends RecyclerView.Adapter<adapterTreinador
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Aluno aluno = listaAlunos.get(position);
         holder.nome.setText(aluno.getNome());
-        holder.info1.setText(aluno.getPeso() + "/" + aluno.getAltura());
-        holder.email.setText(aluno.getEmail());
+        holder.cpf.setText(aluno.getCpf());
     }
 
     @Override
@@ -46,18 +46,14 @@ public class adapterTreinadorAluno extends RecyclerView.Adapter<adapterTreinador
         }
     }
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView nome;
-        TextView info1;
-        TextView email;
+        TextView cpf;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nome = itemView.findViewById(R.id.textNome);
-            info1 = itemView.findViewById(R.id.textPesoAltura);
-            email = itemView.findViewById(R.id.textEmail);
+             nome = itemView.findViewById(R.id.textNome);
+             cpf = itemView.findViewById(R.id.textCpf);
         }
     }
-
-}*/
+}

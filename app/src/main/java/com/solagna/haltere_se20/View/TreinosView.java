@@ -44,11 +44,11 @@ public class TreinosView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.tela_treinos_treinador);
+        setContentView(R.layout.tela_treinador_buscar_exercicios);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         btAddExercicios = findViewById(R.id.btAdicionarExercicio);
-        btAddTreinos = findViewById(R.id.btAddTreino);
+       // btAddTreinos = findViewById(R.id.btAddTreino);
 
         criarListeners();
     }
