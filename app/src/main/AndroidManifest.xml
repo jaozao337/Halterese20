@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Halterese20">
         <activity android:name=".View.TreinadorView"></activity>
-        <activity android:name=".View.LoginView">
+        <activity android:name=".View.PrincipalAlunoView"></activity>
+        <activity android:name=".View.TreinadorBuscaAlunosView"></activity>
+        <activity android:name=".View.CadastroAlunoView"></activity>
+        <activity android:name=".MainController">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,7 @@ package com.solagna.haltere_se20.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
@@ -31,8 +32,9 @@ public class TreinadorView extends AppCompatActivity {
         btAlunos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
-
+                Intent intent = new Intent(getApplicationContext(), TreinadorBuscaAlunosView.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
