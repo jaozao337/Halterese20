@@ -10,8 +10,8 @@ public class ExercicioController {
     }
 
 
-    public void cadastrarExercicio(String nome,String tipo, String peso, String repeticoes, String series, String descricao, String duracao){
-        Exercicio exercicio = new Exercicio(nome,peso,tipo,repeticoes,series,descricao,duracao);
+    public void cadastrarExercicio(String nome,String tipo, int peso, int repeticoes, int series, String descricao, int duracao){
+        Exercicio exercicio = new Exercicio(nome,peso,tipo,repeticoes,series,descricao, duracao);
     }
 
 }

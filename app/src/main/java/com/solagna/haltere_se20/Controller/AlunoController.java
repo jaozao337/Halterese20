@@ -15,7 +15,7 @@ public class AlunoController {
     }
 
 
-    public boolean cadastrarAluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, String peso, String altura) {
+    public boolean cadastrarAluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, int peso, int altura) {
         Aluno aluno = new Aluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura);
         //cadastra usando o dao
         return alunoDAO.salvar(aluno);

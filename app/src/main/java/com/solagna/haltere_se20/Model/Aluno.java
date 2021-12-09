@@ -1,12 +1,13 @@
 package com.solagna.haltere_se20.Model;
 
 public class Aluno extends Pessoa{
-    private String cargaHoraria, observacoes, peso, altura;
+    private String cargaHoraria, observacoes;
+    private int peso, altura;
 
     public Aluno() {
     }
 
-    public Aluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, String peso, String altura) {
+    public Aluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, int peso, int altura) {
         super(nome, cpf, senha, email);
         this.cargaHoraria = cargaHoraria;
         this.observacoes = observacoes;
@@ -30,19 +31,19 @@ public class Aluno extends Pessoa{
         this.observacoes = observacoes;
     }
 
-    public String getPeso() {
+    public int getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 
-    public String getAltura() {
+    public int getAltura() {
         return altura;
     }
 
-    public void setAltura(String altura) {
+    public void setAltura(int altura) {
         this.altura = altura;
     }
 }

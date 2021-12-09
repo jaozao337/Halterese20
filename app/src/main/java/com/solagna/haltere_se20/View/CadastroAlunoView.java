@@ -16,7 +16,8 @@ import com.solagna.haltere_se20.R;
 
 public class CadastroAlunoView extends AppCompatActivity {
     private Button btAdicionarAluno;
-    private String nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura;
+    private String nome, cpf, senha, email, cargaHoraria, observacoes;
+    private int peso, altura;
 private  AlunoController ec;
     public CadastroAlunoView(){
 
@@ -30,13 +31,13 @@ private  AlunoController ec;
     private boolean getDados() {
         nome = findViewById(R.id.ptAddNomeAluno).toString();
         email = findViewById(R.id.ptAddEmailAluno).toString();
-        peso = findViewById(R.id.ptAddPesoAluno).toString();
-        altura = findViewById(R.id.ptAddAlturaAluno).toString();
+        peso = Integer.parseInt(findViewById(R.id.ptAddPesoAluno).toString());
+        altura = Integer.parseInt(findViewById(R.id.ptAddAlturaAluno).toString());
         observacoes = findViewById(R.id.ptAddNecessidadesAluno).toString();
         cpf = findViewById(R.id.ptAddCPFAluno).toString();
         cargaHoraria = findViewById(R.id.ptAddCargaHoraria).toString();
         senha = findViewById(R.id.ptAddSenhaAluno).toString();
-        if (nome.isEmpty() || email.isEmpty() || peso.isEmpty() || altura.isEmpty() || observacoes.isEmpty() || cargaHoraria.isEmpty() || cpf.isEmpty() || cargaHoraria.isEmpty() || senha.isEmpty()) {
+        if (nome.isEmpty() || email.isEmpty() || peso<0 || altura<0 || observacoes.isEmpty() || cargaHoraria.isEmpty() || cpf.isEmpty() || cargaHoraria.isEmpty() || senha.isEmpty()) {
             //toast mandando preencher tudo
             Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);
             toast.show();

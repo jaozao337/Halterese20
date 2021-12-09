@@ -16,8 +16,8 @@ import com.solagna.haltere_se20.R;
 public class CadastroTreinoView extends AppCompatActivity{
 
         private Button btAdicionarTreino;
-        private String nomeTreino,duracaoTreino,descricaoTreino;
-
+        private String nomeTreino,descricaoTreino;
+        private int duracaoTreino;
         private void criarListeners() {
 
             btAdicionarTreino();
@@ -27,12 +27,12 @@ public class CadastroTreinoView extends AppCompatActivity{
                 @Override
                 public void onClick(View view) {
                     nomeTreino =  findViewById(R.id.ptAddNomeTreino).toString();
-                    duracaoTreino = findViewById(R.id.ptAddDuracaoTreino).toString();
+                    duracaoTreino = Integer.parseInt(findViewById(R.id.ptAddDuracaoTreino).toString());
                     descricaoTreino =   findViewById(R.id.ptAddDescricaoTreino).toString();
 
 
 
-                    if(nomeTreino.isEmpty()||duracaoTreino.isEmpty()||descricaoTreino.isEmpty()){
+                    if(nomeTreino.isEmpty()||duracaoTreino<0||descricaoTreino.isEmpty()){
                         //toast mandando preencher tudo
                         Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);
                         toast.show();

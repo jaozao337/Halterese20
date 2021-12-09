@@ -72,7 +72,7 @@
     <string name="EditarDadosALuno">Editar Dados Aluno</string>
     <string name="EditarTreino">Editar Treino</string>
     <string name="ModifcarTreino">Modifcar Treino</string>
-    <string name="BuscarTreino">Buscar Treino</string>
+    <string name="BuscarTreino">Buscar Treino:</string>
     <string name="NomeDoTreino">Nome Do Treino</string>
     <string name="CriarTreino">Criar Treino</string>
 
@@ -87,4 +87,8 @@
     <string name="DescricaoDoTreino">Digite Aqui a Descricão do Treino</string>
     <string name="AdicionarTreino">Adicionar Treino</string>
     <string name="SeriesRepeticoes">Series/Repetições</string>
+    <string name="ModificaTreino">Modificar Treinos</string>
+
+    <string name="BuscaTreino">Buscar Treino</string>
+
 </resources>

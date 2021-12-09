@@ -1,9 +1,12 @@
 package com.solagna.haltere_se20.Model;
 
 public class Treino  {
-    String nomeTreino, duracaoTreino, descricaoTreino;
+    private String nomeTreino, descricaoTreino;
+    private int duracaoTreino;
 
-    public Treino(String nomeTreino, String duracaoTreino, String descricaoTreino){
+    public Treino() {}
+
+    public Treino(String nomeTreino, int duracaoTreino, String descricaoTreino){
 
         this.nomeTreino = nomeTreino;
         this.duracaoTreino = duracaoTreino;
@@ -18,11 +21,11 @@ public class Treino  {
         this.nomeTreino = nomeTreino;
     }
 
-    public String getDuracaoTreino() {
+    public int getDuracaoTreino() {
         return duracaoTreino;
     }
 
-    public void setDuracaoTreino(String duracaoTreino) {
+    public void setDuracaoTreino(int duracaoTreino) {
         this.duracaoTreino = duracaoTreino;
     }
 

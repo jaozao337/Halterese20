@@ -15,7 +15,8 @@ import com.solagna.haltere_se20.R;
 
 public class CadastroExerciciosView extends AppCompatActivity {
     private Button btCadastrarExercicio;
-    private String nome,peso,repeticoes,series,descricao,duracao,tipo;
+    private String nome,descricao,tipo;
+    private int peso,series,repeticoes, duracao;
 
     private void criarListeners() {
         botaoCadastrarExercicios();
@@ -26,14 +27,17 @@ public class CadastroExerciciosView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 nome =  findViewById(R.id.ptNomeExercicio).toString();
-                peso =  findViewById(R.id.ptPesoExercicio).toString();
-                repeticoes =  findViewById(R.id.ptRepeticoesExercicio).toString();
-                series=  findViewById(R.id.ptSerieExercicio).toString();
                 descricao =  findViewById(R.id.ptDescricaoExercicio).toString();
-                duracao =   findViewById(R.id.ptTempoExercicio).toString();
+                tipo =  findViewById(R.id.ptTipoExercicio).toString();
+                peso = Integer.parseInt(findViewById(R.id.ptPesoExercicio).toString());
+                repeticoes = Integer.parseInt(findViewById(R.id.ptRepeticoesExercicio).toString());
+                series= Integer.parseInt(findViewById(R.id.ptSerieExercicio).toString());
+                duracao= Integer.parseInt(findViewById(R.id.ptTempoExercicio).toString());
 
 
-                if(nome.isEmpty()||peso.isEmpty()||repeticoes.isEmpty()||series.isEmpty()||descricao.isEmpty()||duracao.isEmpty()){
+
+
+                if(nome.isEmpty()||peso<0||repeticoes<0||series<0||descricao.isEmpty()||duracao<0){
                     //toast mandando preencher tudo
                     Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);
                     toast.show();

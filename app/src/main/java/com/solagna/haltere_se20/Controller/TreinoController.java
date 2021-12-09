@@ -8,7 +8,7 @@ public class TreinoController {
 
     }
 
-    public void cadastrarTreino(String nomeTreino, String duracaoTreino, String descricaoTreino){
+    public void cadastrarTreino(String nomeTreino, int duracaoTreino, String descricaoTreino){
         Treino treino = new Treino(nomeTreino,duracaoTreino,descricaoTreino);
     }
 }
