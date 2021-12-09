@@ -25,8 +25,6 @@ public class adapterTreinadorAluno extends RecyclerView.Adapter<adapterTreinador
 
 
 
-
-
     public adapterTreinadorAluno(List<Aluno> alunos) {
 
         listaAlunos = alunos;

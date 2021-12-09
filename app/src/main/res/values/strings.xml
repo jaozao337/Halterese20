@@ -90,5 +90,11 @@
     <string name="ModificaTreino">Modificar Treinos</string>
 
     <string name="BuscaTreino">Buscar Treino</string>
+    <string name="DuracaoTotalTreino">Duração do Treino</string>
+    <string name="TodosOsTreinos">Todos Os Treinos</string>
+    <string name="TodosOsSeusTreinos">Todos Os Seus Treinos!</string>
+    <string name="BemVindo">Bem-Vindo!</string>
+    <string name="CronogramaAluno">Seu Cronograma!</string>
+    <string name="SeuTreinoDeHoje">Seu Treino De Hoje</string>
 
 </resources>
