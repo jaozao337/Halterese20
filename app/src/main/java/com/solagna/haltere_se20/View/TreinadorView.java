@@ -52,7 +52,8 @@ public class TreinadorView extends AppCompatActivity {
         btCadastrarTreinador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Intent intent = new Intent(getApplicationContext(), CriaEditaTreinadorView.class);
+                startActivity(intent);
 
             }
         });

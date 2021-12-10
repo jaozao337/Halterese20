@@ -68,7 +68,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/DigiteEmailTreinador"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"

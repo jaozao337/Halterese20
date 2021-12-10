@@ -18,7 +18,7 @@
         <activity android:name=".View.TreinadorBuscaTreinosView"></activity>
         <activity android:name=".View.ExercicioView"></activity>
         <activity android:name=".View.CriaExercicioView"></activity>
-
+        <activity android:name=".View.CriaEditaTreinadorView"></activity>
 
         <activity android:name=".MainController">
             <intent-filter>

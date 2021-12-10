@@ -114,11 +114,11 @@ public class CriaExercicioView extends AppCompatActivity {
         t.setText(titulo);
 
         if(titulo.equals(getString(R.string.TITULO_TREINADOR_CRIA_EXERCICIO))){
-            editandoTreino(b);
+            //editandoTreino(b);
         }
     }
 
-    private void editandoTreino(Bundle bundle){
+    private void editandoExercicio(Bundle bundle){
      /* btExcluirAluno.setVisibility(View.VISIBLE);
 
         EditText nomeTreino=  findViewById(R.id.ptNomeAluno);
