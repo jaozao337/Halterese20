@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +19,8 @@ public class CadastroAlunoView extends AppCompatActivity {
     private Button btAdicionarAluno;
     private String nome, cpf, senha, email, cargaHoraria, observacoes;
     private int peso, altura;
-private  AlunoController ec;
+    private  AlunoController ec;
+    EditText Tnome, Tcpf, Tsenha, Temail, TcargaHoraria, Tobservacoes, Tpeso, Taltura;
     public CadastroAlunoView(){
 
     }
@@ -29,15 +31,33 @@ private  AlunoController ec;
     }
 
     private boolean getDados() {
-        nome = findViewById(R.id.ptAddNomeAluno).toString();
-        email = findViewById(R.id.ptAddEmailAluno).toString();
-        peso = Integer.parseInt(findViewById(R.id.ptAddPesoAluno).toString());
-        altura = Integer.parseInt(findViewById(R.id.ptAddAlturaAluno).toString());
-        observacoes = findViewById(R.id.ptAddNecessidadesAluno).toString();
-        cpf = findViewById(R.id.ptAddCPFAluno).toString();
-        cargaHoraria = findViewById(R.id.ptAddCargaHoraria).toString();
-        senha = findViewById(R.id.ptAddSenhaAluno).toString();
-        if (nome.isEmpty() || email.isEmpty() || peso<0 || altura<0 || observacoes.isEmpty() || cargaHoraria.isEmpty() || cpf.isEmpty() || cargaHoraria.isEmpty() || senha.isEmpty()) {
+        Tnome = findViewById(R.id.ptAddNomeAluno);
+        nome = Tnome.getText().toString();
+
+        Temail = findViewById(R.id.ptAddEmailAluno);
+        email = Temail.getText().toString();
+
+        Tpeso = findViewById(R.id.ptAddPesoAluno);
+        if(!Tpeso.getText().toString().equals("")) {
+            peso = Integer.parseInt(Tpeso.getText().toString());
+        }
+        Taltura = findViewById(R.id.ptAddAlturaAluno);
+        if(!Taltura.getText().toString().equals("")) {
+            altura = Integer.parseInt(Taltura.getText().toString());
+        }
+        Tobservacoes = findViewById(R.id.ptAddNecessidadesAluno);
+        observacoes = Tobservacoes.getText().toString();
+
+        Tcpf = findViewById(R.id.ptAddCPFAluno);
+        cpf = Tcpf.getText().toString();
+
+        TcargaHoraria = findViewById(R.id.ptAddCargaHoraria);
+        cargaHoraria = TcargaHoraria.getText().toString();
+
+        Tsenha = findViewById(R.id.ptAddSenhaAluno);
+        senha = Tsenha.getText().toString();
+
+        if (nome.equals("") || email.equals("") || Tpeso.getText().toString().equals("") || Taltura.getText().toString().equals("") || observacoes.equals("") || cargaHoraria.equals("") || cpf.equals("") || cargaHoraria.equals("") || senha.equals("")) {
             //toast mandando preencher tudo
             Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);
             toast.show();
@@ -51,19 +71,16 @@ private  AlunoController ec;
         btAdicionarAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 if (getDados()) {
                     if (ec.cadastrarAluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura)) {
                         Toast toast = Toast.makeText(getApplicationContext(), "Salvo com sucesso", Toast.LENGTH_SHORT);
                         toast.show();
+                        finish();
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), "Houve um problema ao salvar", Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 }
-
-
             }
         });
     }

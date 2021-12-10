@@ -3,16 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_aluno_principal.xml" value="0.185546875" />
+        <entry key="..\:/Users/Cliente/Downloads/trabalhos/Halterese20/app/src/main/res/layout/adapter_aluno_cronograma_diario.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Cliente/Downloads/trabalhos/Halterese20/app/src/main/res/layout/adapter_aluno_treino_geral.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Cliente/Downloads/trabalhos/Halterese20/app/src/main/res/layout/adapter_treinador_aluno.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Cliente/Downloads/trabalhos/Halterese20/app/src/main/res/layout/tela_treinador_busca_alunos.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Cliente/Downloads/trabalhos/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_alunos.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Cliente/Downloads/trabalhos/Halterese20/app/src/main/res/layout/tela_treinador_principal.xml" value="0.358695652173913" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_alunos_treinadores.xml" value="0.190625" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_login.xml" value="0.33" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_modificar_alunos_treinador.xml" value="0.190625" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_principal_aluno.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_principal_treinador.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_secundaria_aluno.xml" value="0.3541666666666667" />
-        <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_treinador_busca_alunos.xml" value="0.2905982905982906" />
-        <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_alunos.xml" value="0.22" />
-        <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_treinador_principal.xml" value="0.185546875" />
         <entry key="..\:/Users/guand/Desktop/Academia/Halterese20/app/src/main/res/layout/tela_treinos_treinador.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/guand/Desktop/Sexto semestre/Mat/Halterese20/app/src/main/res/layout/tela_alunos_treinadores.xml" value="0.3875" />
         <entry key="..\:/Users/guand/Desktop/Sexto semestre/Mat/Halterese20/app/src/main/res/layout/tela_login.xml" value="0.3875" />
@@ -23,13 +25,11 @@
         <entry key="..\:/Users/guand/Desktop/Sexto semestre/Mat/Halterese20/app/src/main/res/layout/tela_treinos_treinador.xml" value="0.3875" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/drawable/ic_lupa.xml" value="0.164" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/font/roboto_light.xml" value="0.2109375" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_aluno_cronograma_diario.xml" value="0.536" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_aluno_treino_geral.xml" value="0.4" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_treinador_aluno.xml" value="0.536" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_treinador_exercicios.xml" value="0.3714821763602251" />
+        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/adapter_treinador_exercicios.xml" value="0.536" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_alterar_aluno.xml" value="0.2" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_alterar_treinador.xml" value="0.19923044035912782" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_aluno_cronograma.xml" value="0.37161084529505584" />
+        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_aluno_cronograma.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_aluno_principal.xml" value="0.19604543542280184" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_alunos_treinadores.xml" value="0.264" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_buscar_treinador.xml" value="0.18203125" />
@@ -46,9 +46,7 @@
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_treino.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_altera_treino_aluno.xml" value="0.264" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_busca_alunos.xml" value="0.19923044035912782" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_busca_exercicios.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_busca_treinadores.xml" value="0.19923044035912782" />
-        <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_busca_treinos.xml" value="0.19923044035912782" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_buscar_exercicios.xml" value="0.19604543542280184" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_buscar_treino.xml" value="0.264" />
         <entry key="..\:/Users/jpsol/OneDrive/Documents/GitHub/Halterese20/app/src/main/res/layout/tela_treinador_cadastra_alunos.xml" value="0.264" />
@@ -62,7 +60,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

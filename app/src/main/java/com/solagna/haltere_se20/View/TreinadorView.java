@@ -34,7 +34,6 @@ public class TreinadorView extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), TreinadorBuscaAlunosView.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
