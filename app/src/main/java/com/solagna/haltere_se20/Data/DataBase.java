@@ -23,7 +23,7 @@ public class DataBase extends SQLiteOpenHelper {
     /*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
     private static final String CREATE_TABLE_ALUNOS =
             "CREATE TABLE IF NOT EXISTS " + TABELA_ALUNOS +
-            " (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "" + " nome TEXT NOT NULL, " +
             "" + " cpf TEXT NOT NULL, " +
             "" + " senha TEXT NOT NULL, " +

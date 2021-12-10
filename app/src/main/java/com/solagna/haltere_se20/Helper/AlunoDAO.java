@@ -103,11 +103,12 @@ public class AlunoDAO implements BaseDAO{
         String sql = "SELECT * FROM " + DataBase.TABELA_ALUNOS + " ;";
         Cursor c = le.rawQuery(sql, null);
 
-        while ( c.moveToNext() ){
+        while ( c.moveToNext() && c!=null ){
 
             Aluno aluno = new Aluno();
 
-            //Long id = c.getLong( c.getColumnIndex("id") );
+            Integer id = c.getInt( c.getColumnIndex("id") );
+
             String nome = c.getString( c.getColumnIndex("nome") );
             String cpf = c.getString( c.getColumnIndex("cpf") );
             String senha = c.getString( c.getColumnIndex("senha") );
@@ -117,10 +118,11 @@ public class AlunoDAO implements BaseDAO{
             int peso = Integer.parseInt(c.getString( c.getColumnIndex("peso") ));
             int altura = Integer.parseInt(c.getString( c.getColumnIndex("altura") ));
 
+
             /*/*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
-            //aluno.setId( id );
+            aluno.setId( id );
             aluno.setNome( nome );
-            aluno.setCpf( cpf );
+   aluno.setCpf( cpf );
             aluno.setSenha( senha );
             aluno.setEmail( email );
             aluno.setCargaHoraria( cargaHoraria );
@@ -129,7 +131,8 @@ public class AlunoDAO implements BaseDAO{
             aluno.setAltura(altura);
 
             alunos.add( aluno );
-            Log.i("AlunoDAO", aluno.getNome() );
+            Log.i("AlunoDAO", aluno.toString() );
+
         }
 
         return alunos;

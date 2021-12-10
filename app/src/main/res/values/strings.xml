@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">Haltere-se 2.0</string>
 
-    <string name="nome">Digite Aqui Seu Nome</string>
-    <string name="addAlunoNome">Digite Aqui o Nome do Aluno</string>
-    <string name="alunoIdade">Digite Aqui a Idade do Aluno</string>
-    <string name="alunoPeso">Digite Aqui o Peso do Aluno</string>
-    <string name="alunoAltura">Digite Aqui a Altura do Aluno</string>
+
+    <string name="TITULO_ALUNO_CADASTRANDO">Cadastrar-me</string>
+    <string name="TITULO_TREINADOR_CADASTRANDO">Cadastre um novo aluno</string>
+    <string name="TITULO_TREINADOR_MODIFICANDO">Modifique o aluno</string>
+
+
+
+    <string name="salvar">Salvar</string>
+    <string name="nome">Nome</string>
+    <string name="addAlunoNome">Nome</string>
+    <string name="alunoIdade">Idade</string>
+    <string name="alunoPeso">Peso</string>
+    <string name="alunoAltura">Altura</string>
     <string name="alunoGordura">Digite Aqui o Percentual de Gordura</string>
     <string name="alunoNecessidades">Digite Aqui as Necessidades Especiais</string>
 
@@ -42,11 +50,11 @@
     <string name="CpfTreinador">Digite Aqui O CPF Do Treinador</string>
     <string name="SenhaTreinador">Digite Aqui a Senha Do Treinador</string>
     <string name="SalararioTreinador">Digite Aqui o Salario Do Treinador</string>
-    <string name="CPFAluno">Digite Aqui o CPF do Aluno</string>
-    <string name="OBSALuno">Digte Aqui Observacões Sobre o Aluno</string>
+    <string name="CPFAluno">CPF</string>
+    <string name="OBSALuno">Observações</string>
     <string name="DataAluno">Digite A Data De Nascimento Do Aluno</string>
-    <string name="CargaHoraria">Digite A Carga Horaria Do Aluno</string>
-    <string name="SenhaAluno">Digite Aqui a Senha Do Aluno</string>
+    <string name="CargaHoraria">Carga horária</string>
+    <string name="SenhaAluno">Senha</string>
     <string name="ModificarAluno">Modificar Aluno</string>
     <string name="ModificarDadosDoAluno">Modificar Dados Do Aluno</string>
     <string name="ExcluirAluno">Excluir Aluno</string>
@@ -80,7 +88,7 @@
     <string name="ModificarExercicios">Modificar Exercícios</string>
     <string name="BuscarExercicios">Buscar Exercícios:</string>
     <string name="NomeExercicio">Nome Exercício</string>
-    <string name="DigiteEmail">Digite o E-mail do Aluno</string>
+    <string name="DigiteEmail">E-mail</string>
     <string name="DigiteEmailTreinador">Digite Aqui o E-mail do Treinador</string>
     <string name="DigiteNomeDoTreino">Digite Aqui o Nome do Treino</string>
     <string name="DuracaoDoTreino">Digite Aqui a Duracão do Treino</string>

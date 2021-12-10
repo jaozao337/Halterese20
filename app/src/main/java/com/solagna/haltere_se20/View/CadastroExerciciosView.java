@@ -22,24 +22,24 @@ public class CadastroExerciciosView extends AppCompatActivity {
         botaoCadastrarExercicios();
     }
 
+    private void getDados(){
+        nome =  findViewById(R.id.ptNomeExercicio).toString();
+        descricao =  findViewById(R.id.ptDescricaoExercicio).toString();
+        tipo =  findViewById(R.id.ptTipoExercicio).toString();
+        peso = Integer.parseInt(findViewById(R.id.ptPesoExercicio).toString());
+        repeticoes = Integer.parseInt(findViewById(R.id.ptRepeticoesExercicio).toString());
+        series= Integer.parseInt(findViewById(R.id.ptSerieExercicio).toString());
+        duracao= Integer.parseInt(findViewById(R.id.ptTempoExercicio).toString());
+    }
+
     private void botaoCadastrarExercicios() {
         btCadastrarExercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nome =  findViewById(R.id.ptNomeExercicio).toString();
-                descricao =  findViewById(R.id.ptDescricaoExercicio).toString();
-                tipo =  findViewById(R.id.ptTipoExercicio).toString();
-                peso = Integer.parseInt(findViewById(R.id.ptPesoExercicio).toString());
-                repeticoes = Integer.parseInt(findViewById(R.id.ptRepeticoesExercicio).toString());
-                series= Integer.parseInt(findViewById(R.id.ptSerieExercicio).toString());
-                duracao= Integer.parseInt(findViewById(R.id.ptTempoExercicio).toString());
-
-
-
-
+               getDados();
                 if(nome.isEmpty()||peso<0||repeticoes<0||series<0||descricao.isEmpty()||duracao<0){
                     //toast mandando preencher tudo
-                    Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo está incorreto!", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
                     ExercicioController ec = new ExercicioController();

@@ -6,6 +6,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,46 +16,52 @@ import com.solagna.haltere_se20.Controller.AlunoController;
 import com.solagna.haltere_se20.R;
 
 
-public class CadastroAlunoView extends AppCompatActivity {
-    private Button btAdicionarAluno;
+public class CriaEditaAlunoView extends AppCompatActivity {
+    private Button btAdicionarAluno,btExcluirAluno;
     private String nome, cpf, senha, email, cargaHoraria, observacoes;
     private int peso, altura;
-    private  AlunoController ec;
+    private AlunoController ec;
     EditText Tnome, Tcpf, Tsenha, Temail, TcargaHoraria, Tobservacoes, Tpeso, Taltura;
-    public CadastroAlunoView(){
+    private String titulo;
 
+    //caso seja da tela de cadastro
+    public CriaEditaAlunoView() {
     }
+
+    ;
 
     private void criarListeners() {
 
         btAdicionarAluno();
+        btExcluirAluno();
+        ec = new AlunoController(getApplicationContext());
     }
 
     private boolean getDados() {
-        Tnome = findViewById(R.id.ptAddNomeAluno);
+        Tnome = findViewById(R.id.ptNomeAluno);
         nome = Tnome.getText().toString();
 
-        Temail = findViewById(R.id.ptAddEmailAluno);
+        Temail = findViewById(R.id.ptEmailAluno);
         email = Temail.getText().toString();
 
-        Tpeso = findViewById(R.id.ptAddPesoAluno);
-        if(!Tpeso.getText().toString().equals("")) {
+        Tpeso = findViewById(R.id.ptPesoAluno);
+        if (!Tpeso.getText().toString().equals("")) {
             peso = Integer.parseInt(Tpeso.getText().toString());
         }
-        Taltura = findViewById(R.id.ptAddAlturaAluno);
-        if(!Taltura.getText().toString().equals("")) {
+        Taltura = findViewById(R.id.ptAlturaAluno);
+        if (!Taltura.getText().toString().equals("")) {
             altura = Integer.parseInt(Taltura.getText().toString());
         }
-        Tobservacoes = findViewById(R.id.ptAddNecessidadesAluno);
+        Tobservacoes = findViewById(R.id.ptNecessidadesAluno);
         observacoes = Tobservacoes.getText().toString();
 
-        Tcpf = findViewById(R.id.ptAddCPFAluno);
+        Tcpf = findViewById(R.id.ptCPFAluno);
         cpf = Tcpf.getText().toString();
 
-        TcargaHoraria = findViewById(R.id.ptAddCargaHoraria);
+        TcargaHoraria = findViewById(R.id.ptCargaHoraria);
         cargaHoraria = TcargaHoraria.getText().toString();
 
-        Tsenha = findViewById(R.id.ptAddSenhaAluno);
+        Tsenha = findViewById(R.id.ptSenhaAluno);
         senha = Tsenha.getText().toString();
 
         if (nome.equals("") || email.equals("") || Tpeso.getText().toString().equals("") || Taltura.getText().toString().equals("") || observacoes.equals("") || cargaHoraria.equals("") || cpf.equals("") || cargaHoraria.equals("") || senha.equals("")) {
@@ -85,18 +92,70 @@ public class CadastroAlunoView extends AppCompatActivity {
         });
     }
 
+    private void btExcluirAluno() {
+        btExcluirAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //exclui
+            }
+        });
+    }
+    private void atualizarTitulo(){
+        Bundle b = new Bundle();
+        b = getIntent().getExtras();
+        titulo = b.getString("Titulo");
+        TextView t = findViewById(R.id.tituloTelaCadastroAluno);
+        t.setText(titulo);
+        btExcluirAluno = findViewById(R.id.btExcluirAluno);
+        if(titulo.equals(getString(R.string.TITULO_TREINADOR_MODIFICANDO))){
+           editandoAluno(b);
+        }
+    }
+
+    private void editandoAluno(Bundle bundle){
+        btExcluirAluno.setVisibility(View.VISIBLE);
+
+        EditText nomeAluno=  findViewById(R.id.ptNomeAluno);
+       nomeAluno.setText(bundle.getString("nome"));
+
+        EditText email=  findViewById(R.id.ptEmailAluno);
+        email.setText(bundle.getString("email"));
+
+        EditText peso=  findViewById(R.id.ptPesoAluno);
+        peso.setText(
+                (Integer.parseInt(bundle.getString("peso"))));
+
+        EditText altura=  findViewById(R.id.ptAlturaAluno);
+        altura.setText(
+                (Integer.parseInt(bundle.getString("altura"))));
+
+        EditText observacoes=  findViewById(R.id.ptNecessidadesAluno);
+        observacoes.setText(bundle.getString("observacoes"));
+
+        EditText cpf=  findViewById(R.id.ptCPFAluno);
+        cpf.setText(bundle.getString("cpf"));
+
+        EditText cargah=  findViewById(R.id.ptCargaHoraria);
+        cargah.setText(bundle.getString("cargaHoraria"));
+
+        EditText senha=  findViewById(R.id.ptSenhaAluno);
+        senha.setText(bundle.getString("senha"));
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.tela_treinador_cadastra_alunos);
+        setContentView(R.layout.tela_cria_edita_aluno);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         btAdicionarAluno = findViewById(R.id.btAdicionarAluno);
 
-        ec = new AlunoController(getApplicationContext());
+       atualizarTitulo();
+
+
         criarListeners();
     }
 

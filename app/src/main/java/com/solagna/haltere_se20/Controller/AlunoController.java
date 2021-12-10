@@ -5,6 +5,8 @@ import android.content.Context;
 import com.solagna.haltere_se20.Helper.AlunoDAO;
 import com.solagna.haltere_se20.Model.Aluno;
 
+import java.util.List;
+
 public class AlunoController {
 
 
@@ -20,6 +22,10 @@ public class AlunoController {
         //cadastra usando o dao
         return alunoDAO.salvar(aluno);
 
+    }
+
+    public List<Aluno> listarAlunos(){
+        return  alunoDAO.listarAlunos();
     }
 
 }

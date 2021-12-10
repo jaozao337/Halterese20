@@ -14,7 +14,7 @@
     android:background="@color/black">
 
     <EditText
-        android:id="@+id/ptAddEmailAluno"
+        android:id="@+id/ptEmailAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -28,10 +28,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddNomeAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptNomeAluno" />
 
     <EditText
-        android:id="@+id/ptAddAlturaAluno"
+        android:id="@+id/ptAlturaAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -45,10 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddPesoAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptPesoAluno" />
 
     <EditText
-        android:id="@+id/ptAddNecessidadesAluno"
+        android:id="@+id/ptNecessidadesAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -62,10 +62,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddAlturaAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptAlturaAluno" />
 
     <EditText
-        android:id="@+id/ptAddNomeAluno"
+        android:id="@+id/ptNomeAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -85,7 +85,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/ptAddPesoAluno"
+        android:id="@+id/ptPesoAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -99,10 +99,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddEmailAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptEmailAluno" />
 
     <EditText
-        android:id="@+id/ptAddCPFAluno"
+        android:id="@+id/ptCPFAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -116,10 +116,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddNecessidadesAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptNecessidadesAluno" />
 
     <EditText
-        android:id="@+id/ptAddCargaHoraria"
+        android:id="@+id/ptCargaHoraria"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -133,10 +133,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddCPFAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptCPFAluno" />
 
     <EditText
-        android:id="@+id/ptAddSenhaAluno"
+        android:id="@+id/ptSenhaAluno"
         android:layout_width="322dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -150,23 +150,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddCargaHoraria" />
+        app:layout_constraintTop_toBottomOf="@+id/ptCargaHoraria" />
 
     <Button
         android:id="@+id/btAdicionarAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/roboto"
-        android:text="@string/AdicionarAluno"
+        android:text="@string/salvar"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
         app:backgroundTint="@color/cor_principal"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ptAddSenhaAluno" />
+        app:layout_constraintTop_toBottomOf="@+id/ptSenhaAluno" />
+
+    <Button
+        android:id="@+id/btExcluirAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/ExcluirAluno"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btAdicionarAluno" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -194,7 +212,7 @@
         app:srcCompat="@drawable/dumbell" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tituloTelaCadastroAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"

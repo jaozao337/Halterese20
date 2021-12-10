@@ -15,12 +15,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.solagna.haltere_se20.Adapter.adapterTreinadorAluno;
+import com.solagna.haltere_se20.Adapter.adapterListaAluno;
 import com.solagna.haltere_se20.Controller.AlunoController;
 import com.solagna.haltere_se20.Helper.RecyclerItemClickListener;
 import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +43,8 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         btCadastrarAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CadastroAlunoView.class);
+                Intent intent = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
+                intent.putExtra("Titulo", getString(R.string.TITULO_TREINADOR_CADASTRANDO));
                 startActivity(intent);
             }
         });
@@ -57,16 +59,25 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         btCadastrarAluno = findViewById(R.id.btTelaAdicionarAluno);
         criarListeners();
+        popular();
+        //reciclador();
     }
     protected void popular(){
         //popular a lista de alunos
-        reciclador();
+        AlunoController alunoController = new AlunoController(getApplicationContext());
+
+
+      reciclador();
     }
     public void reciclador() {
         //pega os dados e joga pro adp.
 
-        recyclerView = findViewById(R.id.recyclerView);
-        adapterTreinadorAluno adaptador = new adapterTreinadorAluno(listaAlunos);
+        AlunoController alunoController = new AlunoController(getApplicationContext());
+        listaAlunos = alunoController.listarAlunos();
+
+
+        recyclerView = findViewById(R.id.rvListarAlunos);
+        adapterListaAluno adaptador = new adapterListaAluno(listaAlunos);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -84,7 +95,6 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
                     @Override
                     public void onLongItemClick(View view, int position) {
                         alterarAluno(listaAlunos.get(position));
-
                     }
 
                     @Override
@@ -96,9 +106,16 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
     }
 
     public void alterarAluno (Aluno a){
-        Intent alterarAluno = new Intent(getApplicationContext(), CadastroAlunoView.class);
+        Intent alterarAluno = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
+        alterarAluno.putExtra("Titulo", getString(R.string.TITULO_TREINADOR_MODIFICANDO));
         alterarAluno.putExtra("nome", a.getNome());
         alterarAluno.putExtra("email", a.getEmail());
+        alterarAluno.putExtra("cpf", a.getCpf());
+        alterarAluno.putExtra("senha", a.getSenha());
+        alterarAluno.putExtra("cargaHoraria", a.getCargaHoraria());
+        alterarAluno.putExtra("observacoes", a.getObservacoes());
+        alterarAluno.putExtra("peso", ""+a.getPeso());
+        alterarAluno.putExtra("altura", ""+a.getAltura());
         startActivity(alterarAluno);
     }
 }

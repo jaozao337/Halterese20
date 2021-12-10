@@ -8,7 +8,6 @@ import android.widget.*;
 import androidx.appcompat.app.*;
 
 import com.solagna.haltere_se20.Controller.LoginController;
-import com.solagna.haltere_se20.Controller.TreinadorController;
 import com.solagna.haltere_se20.R;
 
 public class LoginView extends AppCompatActivity {
@@ -19,10 +18,10 @@ public class LoginView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.tela_login);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         btLogin = findViewById(R.id.btEntrar);
         btSouTreinador=findViewById(R.id.btEntrarTreinador);
         btCadastrar=findViewById(R.id.btCadastrar);
@@ -35,10 +34,11 @@ public class LoginView extends AppCompatActivity {
         botaoEntrarTreinador();
     }
     private void botaoCadastrar(){
-        btSouTreinador.setOnClickListener(new View.OnClickListener() {
+        btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
+                Intent intent = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
+                intent.putExtra("Titulo", getString(R.string.TITULO_ALUNO_CADASTRANDO));
                 startActivity(intent);
                 finish();
             }

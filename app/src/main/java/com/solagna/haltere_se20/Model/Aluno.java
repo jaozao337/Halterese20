@@ -46,4 +46,14 @@ public class Aluno extends Pessoa{
     public void setAltura(int altura) {
         this.altura = altura;
     }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "cargaHoraria='" + cargaHoraria + '\'' +
+                ", observacoes='" + observacoes + '\'' +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                '}'+ super.toString();
+    }
 }

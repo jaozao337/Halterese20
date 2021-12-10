@@ -16,7 +16,7 @@ public class PrincipalAlunoView extends AppCompatActivity {
         private AlunoController alunoController;
 
         public PrincipalAlunoView() {
-            this.alunoController = new AlunoController(getApplicationContext());
+
         }
 
     @Override
@@ -27,6 +27,7 @@ public class PrincipalAlunoView extends AppCompatActivity {
         setContentView(R.layout.tela_aluno_principal);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        this.alunoController = new AlunoController(getApplicationContext());
 
     }
 
