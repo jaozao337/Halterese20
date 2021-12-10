@@ -21,7 +21,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/DigiteNomeDoTreino"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"
@@ -53,7 +53,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/DescricaoDoTreino"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
             android:textColorHint="@color/cor_principal"
@@ -63,20 +63,20 @@
             app:layout_constraintTop_toBottomOf="@+id/ptAddDuracaoTreino" />
 
         <Button
-            android:id="@+id/btAdicionarTreino"
+            android:id="@+id/btTelaAdicionarExercicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/AdicionarTreino"
+
+            android:text="@string/AdicionarExercicio"
             android:textColor="@color/black"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:backgroundTint="@color/cor_principal"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
@@ -106,7 +106,7 @@
             app:srcCompat="@drawable/dumbell" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvTituloAdicionaTreino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
@@ -147,7 +147,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btAdicionarTreino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/AdicionarTreino"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/cor_principal"
+            app:cornerRadius="10dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btTelaAdicionarExercicio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

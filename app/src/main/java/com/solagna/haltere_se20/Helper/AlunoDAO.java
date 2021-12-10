@@ -122,7 +122,7 @@ public class AlunoDAO implements BaseDAO{
             /*/*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
             aluno.setId( id );
             aluno.setNome( nome );
-   aluno.setCpf( cpf );
+            aluno.setCpf( cpf );
             aluno.setSenha( senha );
             aluno.setEmail( email );
             aluno.setCargaHoraria( cargaHoraria );

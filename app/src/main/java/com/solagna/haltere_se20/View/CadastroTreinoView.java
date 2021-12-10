@@ -45,12 +45,15 @@ public class CadastroTreinoView extends AppCompatActivity{
                 }
             });
         }
+
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            setContentView(R.layout.tela_treinador_cadastra_treinadores);
+            setContentView(R.layout.tela_treinador_cadastra_treinos);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             btAdicionarTreino = findViewById(R.id.btAdicionarTreino);

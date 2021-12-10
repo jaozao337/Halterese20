@@ -5,6 +5,8 @@
     <string name="TITULO_ALUNO_CADASTRANDO">Cadastrar-me</string>
     <string name="TITULO_TREINADOR_CADASTRANDO">Cadastre um novo aluno</string>
     <string name="TITULO_TREINADOR_MODIFICANDO">Modifique o aluno</string>
+    <string name="TITULO_TREINADOR_CRIA_TREINO">Treino Criado</string>
+    <string name="TITULO_TREINADOR_CRIA_EXERCICIO">Exercicío Criado</string>
 
 
 
@@ -104,5 +106,6 @@
     <string name="BemVindo">Bem-Vindo!</string>
     <string name="CronogramaAluno">Seu Cronograma!</string>
     <string name="SeuTreinoDeHoje">Seu Treino De Hoje</string>
+    <string name="AquiDescricaoDoTreino">Aqui Vai A Descricao Do Treino</string>
 
 </resources>

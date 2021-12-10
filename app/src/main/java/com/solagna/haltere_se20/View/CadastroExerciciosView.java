@@ -42,7 +42,7 @@ public class CadastroExerciciosView extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo está incorreto!", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    ExercicioController ec = new ExercicioController();
+                    ExercicioController ec = new ExercicioController(getApplicationContext());
                     ec.cadastrarExercicio(nome,tipo, peso,repeticoes,series,descricao,duracao);
                 }
 

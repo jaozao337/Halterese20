@@ -35,7 +35,7 @@
         <TextView
             android:id="@+id/ptTipoExercicio"
             android:layout_width="322dp"
-            android:layout_height="25dp"
+            android:layout_height="32dp"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:fontFamily="@font/roboto"
@@ -52,26 +52,56 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ptNomeExercicio" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpTipoMusc"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:shadowColor="@color/cor_principal"
-            android:textColor="@color/cor_principal"
-            android:textColorHighlight="@color/cor_principal"
-            android:textColorHint="@color/cor_principal"
-            android:textColorLink="@color/cor_principal"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/txtTipoMusc"
-            app:layout_constraintStart_toStartOf="@+id/ptTipoExercicio"
-            tools:ignore="DuplicateSpeakableTextCheck" />
+            android:layout_marginTop="16dp"
+            app:chipSpacingHorizontal="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptTipoExercicio"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cpTipoCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:fontFamily="@font/roboto"
+                android:shadowColor="@color/cor_principal"
+                android:textColor="@color/cor_principal"
+                android:textColorHighlight="@color/cor_principal"
+                android:textColorHint="@color/cor_principal"
+                android:textColorLink="@color/cor_principal"
+                android:textSize="18sp"
+                app:checkedIcon="@drawable/iconclean"
+                app:checkedIconEnabled="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cpTipoMusc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="false"
+                android:fontFamily="@font/roboto"
+                android:shadowColor="@color/cor_principal"
+                android:textColor="@color/cor_principal"
+                android:textColorHighlight="@color/cor_principal"
+                android:textColorHint="@color/cor_principal"
+                android:textColorLink="@color/cor_principal"
+                android:textSize="18sp"
+                app:checkedIcon="@drawable/iconclean"
+                app:chipEndPadding="6dp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+        </com.google.android.material.chip.ChipGroup>
 
         <TextView
             android:id="@+id/txtTipoMusc"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginRight="8dp"
             android:fontFamily="@font/roboto"
             android:shadowColor="@color/cor_principal"
             android:text="@string/exercicioTipoMusc"
@@ -80,7 +110,7 @@
             android:textColorHint="@color/cor_principal"
             android:textColorLink="@color/cor_principal"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/cpTipoMusc"
+            app:layout_constraintEnd_toStartOf="@+id/chipGroup"
             app:layout_constraintTop_toBottomOf="@+id/ptTipoExercicio" />
 
         <EditText
@@ -130,7 +160,7 @@
             android:ems="10"
             android:fontFamily="@font/roboto"
             android:hint="@string/exercicioTempo"
-            android:inputType="text"
+            android:inputType="number"
             android:shadowColor="@color/cor_principal"
             android:textColor="@color/cor_principal"
             android:textColorHighlight="@color/cor_principal"
@@ -141,29 +171,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ptDescricaoExercicio" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpTipoCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:fontFamily="@font/roboto"
-            android:shadowColor="@color/cor_principal"
-            android:textColor="@color/cor_principal"
-            android:textColorHighlight="@color/cor_principal"
-            android:textColorHint="@color/cor_principal"
-            android:textColorLink="@color/cor_principal"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/txtTipoCard"
-            app:layout_constraintEnd_toStartOf="@+id/txtTipoCard" />
-
         <TextView
             android:id="@+id/txtTipoCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginRight="44dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginLeft="8dp"
             android:fontFamily="@font/roboto"
             android:shadowColor="@color/cor_principal"
             android:text="@string/exercicioTipoCard"
@@ -172,7 +185,7 @@
             android:textColorHint="@color/cor_principal"
             android:textColorLink="@color/cor_principal"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chipGroup"
             app:layout_constraintTop_toBottomOf="@+id/ptTipoExercicio" />
 
         <EditText
@@ -192,7 +205,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cpTipoCard" />
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
 
         <EditText
             android:id="@+id/ptRepeticoesExercicio"
@@ -256,7 +269,7 @@
             app:srcCompat="@drawable/dumbell" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvAdicionarExercicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"

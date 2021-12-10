@@ -105,12 +105,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ptBuscarExercicio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
             android:background="@color/cor_principal"
             android:hint="@string/NomeDoTreino"
             android:textColor="@color/black"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -14,6 +14,12 @@
         <activity android:name=".View.PrincipalAlunoView"></activity>
         <activity android:name=".View.TreinadorBuscaAlunosView"></activity>
         <activity android:name=".View.CriaEditaAlunoView"></activity>
+        <activity android:name=".View.CriaTreinosView"></activity>
+        <activity android:name=".View.TreinadorBuscaTreinosView"></activity>
+        <activity android:name=".View.ExercicioView"></activity>
+        <activity android:name=".View.CriaExercicioView"></activity>
+
+
         <activity android:name=".MainController">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

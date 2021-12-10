@@ -1,5 +1,6 @@
 package com.solagna.haltere_se20.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -28,7 +29,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
     public CriaEditaAlunoView() {
     }
 
-    ;
+
 
     private void criarListeners() {
 
