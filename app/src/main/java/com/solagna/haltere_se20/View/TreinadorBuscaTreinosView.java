@@ -62,11 +62,11 @@ public class  TreinadorBuscaTreinosView extends AppCompatActivity {
         btCadastrarTreino = findViewById(R.id.btTelaAdicionarTreinos);
         criarListeners();
         popular();
-        reciclador();
+        //reciclador();
     }
     protected void popular(){
         //popular a lista de alunos
-        TreinoController treinoController = new TreinoController(getApplicationContext());
+        //TreinoController treinoController = new TreinoController(getApplicationContext());
         reciclador();
     }
     public void reciclador() {

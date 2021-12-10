@@ -66,7 +66,7 @@ public class AlunoDAO implements BaseDAO{
 
         try {
             String[] args = {aln.getCpf().toString()};
-            escreve.update(DataBase.TABELA_ALUNOS, cv, "CPF= ", args);
+            escreve.update(DataBase.TABELA_ALUNOS, cv, "CPF=? ", args);
             Log.i("INFO", "Aluno atualizado com sucesso!");
         }catch (Exception e){
             Log.e("INFO", "Erro ao atualizar aluno " + e.getMessage() );

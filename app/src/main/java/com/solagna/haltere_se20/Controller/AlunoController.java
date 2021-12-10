@@ -24,6 +24,16 @@ public class AlunoController {
 
     }
 
+    public boolean atualizarAluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, int peso, int altura){
+        Aluno aluno = new Aluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura);
+        return  alunoDAO.atualizar(aluno);
+    }
+
+    public boolean deletarAluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, int peso, int altura){
+        Aluno aluno = new Aluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura);
+        return alunoDAO.deletar(aluno);
+    }
+
     public List<Aluno> listarAlunos(){
         return  alunoDAO.listarAlunos();
     }
