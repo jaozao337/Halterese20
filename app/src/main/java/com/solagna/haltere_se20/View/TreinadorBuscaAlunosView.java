@@ -1,14 +1,18 @@
 package com.solagna.haltere_se20.View;
 
 import android.content.Intent;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,26 +32,52 @@ import java.util.List;
 public class TreinadorBuscaAlunosView extends AppCompatActivity {
 
     //o recycler view
-    private Button btCadastrarAluno;
+    private Button btCadastrarAluno, btBuscarAluno;
     private RecyclerView recyclerView;
     private List<Aluno> listaAlunos = new ArrayList<Aluno>();
-
+    private adapterListaAluno adaptador;
+    private EditText Tnome;
     public TreinadorBuscaAlunosView() {
 
     }
 
     private  void criarListeners(){
         botaoCadastrar();
+        botaoBuscar();
     }
+
+    private void botaoBuscar(){
+        btBuscarAluno.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                String busca = Tnome.getText().toString();
+                AlunoController alunoController = new AlunoController(getApplicationContext());
+                listaAlunos.clear();
+                listaAlunos = alunoController.procurarAlunoNome(busca);
+                adaptador = new adapterListaAluno(listaAlunos);
+                recyclerView.setAdapter(adaptador);
+            }
+        });
+    }
+
     private void botaoCadastrar(){
         btCadastrarAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
                 intent.putExtra("Titulo", getString(R.string.TITULO_TREINADOR_CADASTRANDO));
-                startActivity(intent);
+                startActivityForResult(intent,0);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        AlunoController alunoController = new AlunoController(getApplicationContext());
+        listaAlunos = alunoController.listarAlunos();
+        adaptador = new adapterListaAluno(listaAlunos);
+        recyclerView.setAdapter(adaptador);
     }
 
     @Override
@@ -58,30 +88,28 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         setContentView(R.layout.tela_treinador_busca_alunos);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         btCadastrarAluno = findViewById(R.id.btTelaAdicionarAluno);
+        btBuscarAluno = findViewById(R.id.btBuscarAluno);
+        Tnome = findViewById(R.id.ptExibirNomeAluno);
         criarListeners();
-        popular();
-        //reciclador();
+        //popular();
+        AlunoController alunoController = new AlunoController(getApplicationContext());
+        listaAlunos = alunoController.listarAlunos();
+        reciclador();
     }
     protected void popular(){
         //popular a lista de alunos
         AlunoController alunoController = new AlunoController(getApplicationContext());
-
-
-      reciclador();
+        reciclador();
     }
     public void reciclador() {
         //pega os dados e joga pro adp.
-
-        AlunoController alunoController = new AlunoController(getApplicationContext());
-        listaAlunos = alunoController.listarAlunos();
-
-
         recyclerView = findViewById(R.id.rvListarAlunos);
-        adapterListaAluno adaptador = new adapterListaAluno(listaAlunos);
+        adaptador = new adapterListaAluno(listaAlunos);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerView.removeAllViews();
         recyclerView.setAdapter(adaptador);
 
 
@@ -116,6 +144,6 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         alterarAluno.putExtra("observacoes", a.getObservacoes());
         alterarAluno.putExtra("peso", ""+a.getPeso());
         alterarAluno.putExtra("altura", ""+a.getAltura());
-        startActivity(alterarAluno);
+        startActivityForResult(alterarAluno,0);
     }
 }

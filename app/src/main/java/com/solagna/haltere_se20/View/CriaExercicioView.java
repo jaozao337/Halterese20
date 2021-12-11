@@ -4,19 +4,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.solagna.haltere_se20.Adapter.adapterListaAluno;
+import com.solagna.haltere_se20.Adapter.adapterListarExercicioTreino;
+import com.solagna.haltere_se20.Controller.AlunoController;
 import com.solagna.haltere_se20.Controller.ExercicioController;
 import com.solagna.haltere_se20.Controller.TreinoController;
+import com.solagna.haltere_se20.Helper.RecyclerItemClickListener;
+import com.solagna.haltere_se20.Model.Aluno;
+import com.solagna.haltere_se20.Model.Exercicio;
 import com.solagna.haltere_se20.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CriaExercicioView extends AppCompatActivity {
     private Button btAdicionarExercicio;
@@ -27,6 +41,22 @@ public class CriaExercicioView extends AppCompatActivity {
     EditText Tnome, Tdescricao, Tduracao, Tpeso, Trepeticoes, Tseries;
     private String titulo;
     /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.tela_treinador_cadastra_exercicios);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        btAdicionarExercicio = findViewById(R.id.btCadastrarExercicio);
+
+        //atualizarTitulo();
+        //reciclador();
+
+        criarListeners();
+    }
 
     private void criarListeners() {
         btAdicionarExercicio();
@@ -91,7 +121,7 @@ public class CriaExercicioView extends AppCompatActivity {
                 Toast ee = Toast.makeText(getApplicationContext(), "aoba", Toast.LENGTH_SHORT);
                 ee.show();
                 if (getDados()) {
-                    if (ec.cadastrarExercicio( nome,tipo,peso,repeticoes,series,descricao, duracao)) {
+                    if (ec.cadastrarExercicio( nome,tipo,peso,repeticoes,series,descricao,duracao)) {
                         Toast toast = Toast.makeText(getApplicationContext(), "Salvo com sucesso", Toast.LENGTH_SHORT);
                         toast.show();
                         finish();
@@ -133,20 +163,5 @@ public class CriaExercicioView extends AppCompatActivity {
 
     */
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.tela_treinador_cadastra_exercicios);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-        btAdicionarExercicio = findViewById(R.id.btCadastrarExercicio);
-
-        //atualizarTitulo();
-        criarListeners();
-    }
-
 
 }

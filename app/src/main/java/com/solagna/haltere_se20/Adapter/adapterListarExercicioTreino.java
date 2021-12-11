@@ -18,7 +18,6 @@ public class adapterListarExercicioTreino extends RecyclerView.Adapter<adapterLi
     private List<Exercicio> listaExercicios;
 
     public adapterListarExercicioTreino(List<Exercicio> exercicios) {
-
         listaExercicios = exercicios;
     }
 
@@ -63,7 +62,7 @@ public class adapterListarExercicioTreino extends RecyclerView.Adapter<adapterLi
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomeExercicio = itemView.findViewById(R.id.textNomeDoExercicio);
+            nomeExercicio = itemView.findViewById(R.id.textNomeExercicio);
             serieRepeticoesExercicio = itemView.findViewById(R.id.textSeriesRepeticoes);
             descricaoExercicio = itemView.findViewById(R.id.textDescricao);
         }

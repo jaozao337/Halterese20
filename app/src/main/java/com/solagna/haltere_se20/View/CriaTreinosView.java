@@ -5,32 +5,127 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.solagna.haltere_se20.Adapter.adapterListarExercicioTreino;
 import com.solagna.haltere_se20.Controller.AlunoController;
+import com.solagna.haltere_se20.Controller.ExercicioController;
 import com.solagna.haltere_se20.Controller.TreinadorController;
 import com.solagna.haltere_se20.Controller.TreinoController;
+import com.solagna.haltere_se20.Helper.RecyclerItemClickListener;
+import com.solagna.haltere_se20.Model.Exercicio;
 import com.solagna.haltere_se20.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CriaTreinosView extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private List<Exercicio> listaExercicio = new ArrayList<Exercicio>(), selecionados = new ArrayList<Exercicio>();
     private Button btAdicionarTreino, btTelaExercicio;
-    private String nomeTreino, descricaoTreino;
-    private int duracaoTreino;
+    private String nomeTreino, descricaoTreino, y;
+    private int duracaoTreino, x;
     private TreinoController ec;
     EditText TnomeTreino, TdescricaoTreino, TduracaoTreino;
     private String titulo;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.tela_treinador_cadastra_treinos);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        btAdicionarTreino = findViewById(R.id.btAdicionarTreino);
+        btTelaExercicio = findViewById(R.id.btTelaAdicionarExercicio);
+
+        atualizarTitulo();
+
+
+        criarListeners();
+        reciclador();
+    }
 
     private void criarListeners() {
         botaoExercicios();
         btAdicionarTreino();
 
         ec = new TreinoController(getApplicationContext());
+    }
+
+    public void reciclador() {
+        //pega os dados e joga pro adp.
+
+        ExercicioController exercicioController = new ExercicioController(getApplicationContext());
+        listaExercicio = exercicioController.listarExercicio();
+
+
+        recyclerView = findViewById(R.id.recyclerView);
+        adapterListarExercicioTreino adaptador = new adapterListarExercicioTreino(listaExercicio);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerView.setAdapter(adaptador);
+
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        atualizaLista(listaExercicio.get(position));
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        atualizaLista(listaExercicio.get(position));
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+                })
+        );
+    }
+
+    public void atualizaLista(Exercicio s) {
+        if (!selecionados.remove(s)) {
+            selecionados.add(s);
+        }
+
+        x = 0;
+        y = "";
+        for (int i = 0; i < selecionados.size(); i++) {
+            Exercicio ss = selecionados.get(i);
+            if (i + 1 == selecionados.size()) {
+
+                y = y + ss.getNome();
+
+            } else {
+
+                y = y + ss.getNome() + ",";
+
+            }
+        }
+
+        //TextView newTreino = findViewById(R.id.);
+        if(y.equals("")){y="Escolha pelo menos um exercicios";}
+        //newTreino.setText(y);
+
+
     }
 
     private void botaoExercicios() {
@@ -112,23 +207,5 @@ public class CriaTreinosView extends AppCompatActivity {
 
     */
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.tela_treinador_cadastra_treinos);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-        btAdicionarTreino = findViewById(R.id.btAdicionarTreino);
-        btTelaExercicio = findViewById(R.id.btTelaAdicionarExercicio);
-
-        atualizarTitulo();
-
-
-        criarListeners();
-    }
-
 
 }

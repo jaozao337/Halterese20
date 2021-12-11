@@ -138,4 +138,46 @@ public class AlunoDAO implements BaseDAO{
         return alunos;
 
     }
+
+    public List<Aluno> buscarAlunoNome(String nomeBusca) {
+        List<Aluno> alunos = new ArrayList<>();
+
+        String sql = "SELECT * FROM " + DataBase.TABELA_ALUNOS + " WHERE nome LIKE '%" + nomeBusca + "%' ;";
+        Cursor c = le.rawQuery(sql, null);
+
+        while ( c.moveToNext() && c!=null ){
+            //if(c.getString(c.getColumnIndex("nome")).equals(nomeBusca)) {
+                Aluno aluno = new Aluno();
+
+                Integer id = c.getInt(c.getColumnIndex("id"));
+
+                String nome = c.getString(c.getColumnIndex("nome"));
+                String cpf = c.getString(c.getColumnIndex("cpf"));
+                String senha = c.getString(c.getColumnIndex("senha"));
+                String email = c.getString(c.getColumnIndex("email"));
+                String cargaHoraria = c.getString(c.getColumnIndex("cargaHoraria"));
+                String observacoes = c.getString(c.getColumnIndex("observacoes"));
+                int peso = Integer.parseInt(c.getString(c.getColumnIndex("peso")));
+                int altura = Integer.parseInt(c.getString(c.getColumnIndex("altura")));
+
+
+                /*/*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
+                aluno.setId(id);
+                aluno.setNome(nome);
+                aluno.setCpf(cpf);
+                aluno.setSenha(senha);
+                aluno.setEmail(email);
+                aluno.setCargaHoraria(cargaHoraria);
+                aluno.setObservacoes(observacoes);
+                aluno.setPeso(peso);
+                aluno.setAltura(altura);
+
+                alunos.add(aluno);
+                Log.i("AlunoDAO", aluno.toString());
+            //}
+        }
+
+        return alunos;
+
+    }
 }

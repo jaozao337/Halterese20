@@ -34,6 +34,11 @@ public class AlunoController {
         return alunoDAO.deletar(aluno);
     }
 
+    public List<Aluno> procurarAlunoNome(String nome){
+        List<Aluno> alunos = alunoDAO.buscarAlunoNome(nome);
+        return alunos;
+    }
+
     public List<Aluno> listarAlunos(){
         return  alunoDAO.listarAlunos();
     }
