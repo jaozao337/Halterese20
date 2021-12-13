@@ -180,7 +180,7 @@ public class AlunoDAO implements BaseDAO{
         return alunos;
     }
 
-    public Aluno validarLogin(String login, String senha) {
+    public Aluno validarLoginAluno(String login, String senha) {
         SQLiteDatabase le = MainController.db.getReadableDatabase();
 
         //String[] selectionArgs = new String[]{login, senha};

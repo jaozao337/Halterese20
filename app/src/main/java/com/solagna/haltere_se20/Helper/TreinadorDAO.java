@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.MainController;
+import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.Model.Treinador;
 
 import java.util.ArrayList;
@@ -117,6 +118,23 @@ public class TreinadorDAO implements BaseDAO{
         }
 
         return treinadores;
-
     }
+    public Treinador validarLoginTreinador(String login, String senha) {
+        SQLiteDatabase le = MainController.db.getReadableDatabase();
+
+        //String[] selectionArgs = new String[]{login, senha};
+
+        String sql = "SELECT * FROM "+  DataBase.TABELA_TREINADORES +" WHERE email=\'"+login+"\' AND senha =\'"+senha+"\';";
+        Cursor cursor = le.rawQuery(sql, null);
+
+        Treinador treinadorLogin = null;
+        while (cursor.moveToNext() && cursor!=null) {
+            treinadorLogin = new Treinador();
+            treinadorLogin.setNome(cursor.getString(cursor.getColumnIndex("email")));
+            treinadorLogin.setSenha(cursor.getString(cursor.getColumnIndex("senha")));
+        }
+        cursor.close();
+        return treinadorLogin;
+    }
+
 }

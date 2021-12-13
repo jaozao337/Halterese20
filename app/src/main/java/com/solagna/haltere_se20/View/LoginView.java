@@ -80,12 +80,17 @@ private void botaoEntrarTreinador(){
 
                if(getCampos()) {
                 LoginController lc = new LoginController(getApplicationContext());
-                   if (lc.realizarLogin(login, senha)) {
+                   if (lc.realizarLoginAluno(login, senha)) {
                        Intent intent = new Intent(getApplicationContext(), PrincipalAlunoView.class);
                        startActivity(intent);
                        Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
                        finish();
-                   }else {
+                   }else if(lc.realizarLoginTreinador(login, senha)) {
+                           Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
+                           startActivity(intent);
+                           Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
+                           finish();
+                   }else{
                        Toast.makeText(LoginView.this, "Usuário ou senha inválido", Toast.LENGTH_SHORT).show();
                    }
                }

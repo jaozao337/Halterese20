@@ -11,23 +11,25 @@ import androidx.core.graphics.drawable.IconCompat;
 
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.Helper.AlunoDAO;
+import com.solagna.haltere_se20.Helper.TreinadorDAO;
 import com.solagna.haltere_se20.MainController;
 import com.solagna.haltere_se20.Model.Aluno;
+import com.solagna.haltere_se20.Model.Treinador;
 import com.solagna.haltere_se20.View.LoginView;
 
 public class LoginController {
 
     private AlunoDAO ad;
+    private TreinadorDAO td;
 
     public LoginController(Context ex){
         ad = new AlunoDAO(ex);
+        td = new TreinadorDAO(ex);
     }
     //cria o dao
 
-    public boolean realizarLogin(String login, String senha){
-
-        Aluno aluno = ad.validarLogin(login, senha);
-
+    public boolean realizarLoginAluno(String login, String senha){
+        Aluno aluno = ad.validarLoginAluno(login, senha);
         // Se a variável usuario for diferente de null, significa que consultou no SQLite e esse usuário existe, então:
         if (aluno != null) {
             Log.i("info","logou");
@@ -36,6 +38,17 @@ public class LoginController {
             Log.i("info","n logou");
             return false; }
     }
+    public boolean realizarLoginTreinador(String login, String senha){
+        Treinador treinador = td.validarLoginTreinador(login, senha);
+        // Se a variável usuario for diferente de null, significa que consultou no SQLite e esse usuário existe, então:
+        if (treinador != null) {
+            Log.i("info","logou");
+            return true;
+        } else {
+            Log.i("info","n logou");
+            return false; }
+    }
+
 
 
 
