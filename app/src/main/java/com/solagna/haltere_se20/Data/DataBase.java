@@ -15,6 +15,7 @@ public class DataBase extends SQLiteOpenHelper {
     public static String TABELA_TREINADORES = "treinadores";
     public static String TABELA_EXERCICIOS = "exercicios";
     public static String TABELA_TREINOS = "treinos";
+    public static String TABELA_TREINO_EXERCICIOS = "treinoExercicios";
 
     public DataBase(Context context){
 
@@ -59,6 +60,15 @@ public class DataBase extends SQLiteOpenHelper {
                     "" + " nomeTreino TEXT NOT NULL, " +
                     "" + " duracaoTreino TEXT NOT NULL, " +
                     "" + " descricaoTreino TEXT NOT NULL); ";
+    /* id(treino), id(exercicio)*/
+    private static final String CREATE_TABLE_TREINOS_EXERCICIO =
+            "CREATE TABLE IF NOT EXISTS " + TABELA_TREINO_EXERCICIOS +
+                    " (idTreinoExercicio TEXT PRIMARY KEY, " +
+                    "" + "idTreino INTEGER NOT NULL, " +
+                    "" + " idExercicio INTEGER NOT NULL, " +
+                    "" + " CONSTRAINT fk_TreExe FOREIGN KEY (idExercicio) REFERENCES " + TABELA_EXERCICIOS + " (id), "+
+                    "" + " CONSTRAINT fk_TreExe FOREIGN KEY (idExercicio) REFERENCES " + TABELA_EXERCICIOS + " (id) )";
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -66,6 +76,7 @@ public class DataBase extends SQLiteOpenHelper {
         String tbTreinadores= CREATE_TABLE_TREINADORES;
         String tbExercicios= CREATE_TABLE_EXERCICIOS;
         String tbTreinos= CREATE_TABLE_TREINOS;
+        String tbTreinoExercicio = CREATE_TABLE_TREINOS_EXERCICIO;
 
         try {
             db.execSQL( tbAlunos );
@@ -87,6 +98,12 @@ public class DataBase extends SQLiteOpenHelper {
         }
         try {
             db.execSQL( tbTreinos );
+            Log.i("INFO DB", "Sucesso ao criar a tabela" );
+        }catch (Exception e){
+            Log.i("INFO DB", "Erro ao criar a tabela" + e.getMessage() );
+        }
+        try {
+            db.execSQL( tbTreinoExercicio );
             Log.i("INFO DB", "Sucesso ao criar a tabela" );
         }catch (Exception e){
             Log.i("INFO DB", "Erro ao criar a tabela" + e.getMessage() );
@@ -127,6 +144,14 @@ public class DataBase extends SQLiteOpenHelper {
         }catch (Exception e){
             Log.i("INFO DB", "Erro ao atualizar App" + e.getMessage() );
         }
+        try {
+            db.execSQL( "DROP TABLE IF EXISTS " + TABELA_TREINO_EXERCICIOS + " ;" );
+            onCreate(db);
+            Log.i("INFO DB", "Sucesso ao atualizar App" );
+        }catch (Exception e){
+            Log.i("INFO DB", "Erro ao atualizar App" + e.getMessage() );
+        }
+
 
     }
 }

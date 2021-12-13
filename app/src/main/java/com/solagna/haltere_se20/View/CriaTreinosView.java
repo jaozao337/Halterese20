@@ -23,8 +23,10 @@ import com.solagna.haltere_se20.Controller.AlunoController;
 import com.solagna.haltere_se20.Controller.ExercicioController;
 import com.solagna.haltere_se20.Controller.TreinadorController;
 import com.solagna.haltere_se20.Controller.TreinoController;
+import com.solagna.haltere_se20.Controller.TreinoExercicioController;
 import com.solagna.haltere_se20.Helper.RecyclerItemClickListener;
 import com.solagna.haltere_se20.Model.Exercicio;
+import com.solagna.haltere_se20.Model.Treino;
 import com.solagna.haltere_se20.R;
 
 import java.util.ArrayList;
@@ -34,9 +36,10 @@ public class CriaTreinosView extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Exercicio> listaExercicio = new ArrayList<Exercicio>(), selecionados = new ArrayList<Exercicio>();
     private Button btAdicionarTreino, btTelaExercicio;
-    private String nomeTreino, descricaoTreino, y;
+    private String nomeTreino, descricaoTreino, y, z;
     private int duracaoTreino, x;
     private TreinoController ec;
+    private TreinoExercicioController tec;
     EditText TnomeTreino, TdescricaoTreino, TduracaoTreino;
     private String titulo;
 
@@ -108,24 +111,23 @@ public class CriaTreinosView extends AppCompatActivity {
 
         x = 0;
         y = "";
+        z = "";
         for (int i = 0; i < selecionados.size(); i++) {
             Exercicio ss = selecionados.get(i);
             if (i + 1 == selecionados.size()) {
-
+                z = z + ss.getId() + ",";
                 y = y + ss.getNome();
 
             } else {
-
+                z = z + ss.getId();
                 y = y + ss.getNome() + ",";
 
             }
         }
 
-        //TextView newTreino = findViewById(R.id.);
+        TextView newTreino = findViewById(R.id.tvExerciciosTreino);
         if(y.equals("")){y="Escolha pelo menos um exercicios";}
-        //newTreino.setText(y);
-
-
+        newTreino.setText(y);
     }
 
     private void botaoExercicios() {
@@ -167,9 +169,11 @@ public class CriaTreinosView extends AppCompatActivity {
             public void onClick(View view) {
                 if (getDados()) {
                     if (ec.cadastrarTreino( nomeTreino, duracaoTreino, descricaoTreino)) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Salvo com sucesso", Toast.LENGTH_SHORT);
-                        toast.show();
-                        finish();
+                        //if(criaConexaoExercicioTreino()) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Salvo com sucesso", Toast.LENGTH_SHORT);
+                            toast.show();
+                            finish();
+                        //}
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), "Houve um problema ao salvar", Toast.LENGTH_SHORT);
                         toast.show();
@@ -177,6 +181,23 @@ public class CriaTreinosView extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean criaConexaoExercicioTreino(){
+        String[] listaTreExe = z.split(",");
+        List<Treino> listaTreino = new ArrayList<Treino>();
+        listaTreino = ec.listarTreinos();
+        Long idTreino = 0l;
+        for(Treino t:listaTreino){
+            if(t.getNomeTreino()==nomeTreino && t.getDuracaoTreino()==duracaoTreino && t.getDescricaoTreino() == descricaoTreino){
+                idTreino = t.getId();
+            }
+        }
+
+        for (String s : listaTreExe){
+            return tec.cadastrarTreinoExercicio(Integer.parseInt(""+idTreino), Integer.parseInt(s));
+        }
+        return false;
     }
 
     private void atualizarTitulo(){

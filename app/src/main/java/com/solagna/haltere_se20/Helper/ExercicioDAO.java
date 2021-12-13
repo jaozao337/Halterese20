@@ -107,6 +107,44 @@ public class ExercicioDAO implements BaseDAO{
             Exercicio exercicio = new Exercicio();
 
             /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
+            Long id = c.getLong( c.getColumnIndex("id") );
+            String nome = c.getString(c.getColumnIndex("nome"));
+            String tipo = c.getString(c.getColumnIndex("tipo"));
+            String descricao = c.getString(c.getColumnIndex("descricao"));
+            int duracao = Integer.parseInt(c.getString(c.getColumnIndex("duracao")));
+            int series = Integer.parseInt(c.getString(c.getColumnIndex("series")));
+            int peso = Integer.parseInt(c.getString(c.getColumnIndex("peso")));
+            int repeticoes = Integer.parseInt(c.getString(c.getColumnIndex("repeticoes")));
+
+            /*/*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
+            exercicio.setId( id );
+            exercicio.setNome(nome);
+            exercicio.setTipo(tipo);
+            exercicio.setDescricao(descricao);
+            exercicio.setDuracao(duracao);
+            exercicio.setSeries(series);
+            exercicio.setPeso(peso);
+            exercicio.setRepeticoes(repeticoes);
+
+
+            exercicios.add(exercicio);
+            Log.i("ExercicioDAO", exercicio.getNome());
+        }
+
+        return exercicios;
+    }
+
+    public List<Exercicio> buscar(String busca) {
+        List<Exercicio> exercicios = new ArrayList<>();
+
+        String sql = "SELECT * FROM " + DataBase.TABELA_EXERCICIOS + " WHERE id LIKE '%" + busca + "%' ;";
+        Cursor c = le.rawQuery(sql, null);
+
+        while (c.moveToNext()) {
+
+            Exercicio exercicio = new Exercicio();
+
+            /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
             //Long id = c.getLong( c.getColumnIndex("id") );
             String nome = c.getString(c.getColumnIndex("nome"));
             String tipo = c.getString(c.getColumnIndex("tipo"));
@@ -133,4 +171,5 @@ public class ExercicioDAO implements BaseDAO{
 
         return exercicios;
     }
+
     }

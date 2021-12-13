@@ -96,13 +96,36 @@ public class TreinoDAO implements BaseDAO{
 
             Treino treino = new Treino();
             /* nomeTreino,  duracaoTreino,  descricaoTreino*/
-            //Long id = c.getLong( c.getColumnIndex("id") );
+            Long id = c.getLong( c.getColumnIndex("id") );
             String nomeTreino = c.getString(c.getColumnIndex("nome treino"));
             String descricaoTreino = c.getString(c.getColumnIndex("descricao treino"));
             int duracaoTreino = Integer.parseInt(c.getString(c.getColumnIndex("duracao treino")));
 
-            /*/*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
-            //treino.setId( id );
+            treino.setId( id );
+            treino.setNomeTreino(nomeTreino);
+            treino.setDescricaoTreino(descricaoTreino);
+            treino.setDuracaoTreino(duracaoTreino);
+
+            treinos.add(treino);
+            Log.i("TreinoDAO", treino.getNomeTreino());
+        }
+
+        return treinos;
+    }
+
+    public List<Treino> buscar(String busca) {
+        List<Treino> treinos = new ArrayList<>();
+
+        String sql = "SELECT * FROM " + DataBase.TABELA_TREINOS + " WHERE id LIKE '%" + busca + "%' ;";
+        Cursor c = le.rawQuery(sql, null);
+
+        while (c.moveToNext()) {
+
+            Treino treino = new Treino();
+            String nomeTreino = c.getString(c.getColumnIndex("nome treino"));
+            String descricaoTreino = c.getString(c.getColumnIndex("descricao treino"));
+            int duracaoTreino = Integer.parseInt(c.getString(c.getColumnIndex("duracao treino")));
+
             treino.setNomeTreino(nomeTreino);
             treino.setDescricaoTreino(descricaoTreino);
             treino.setDuracaoTreino(duracaoTreino);

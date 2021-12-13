@@ -3,6 +3,7 @@ package com.solagna.haltere_se20.Model;
 public class Treino  {
     private String nomeTreino, descricaoTreino;
     private int duracaoTreino;
+    private Long id;
 
     public Treino() {}
 
@@ -37,4 +38,11 @@ public class Treino  {
         this.descricaoTreino = descricaoTreino;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

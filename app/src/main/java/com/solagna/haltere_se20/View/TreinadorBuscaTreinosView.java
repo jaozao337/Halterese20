@@ -61,8 +61,8 @@ public class  TreinadorBuscaTreinosView extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         btCadastrarTreino = findViewById(R.id.btTelaAdicionarTreinos);
         criarListeners();
-        popular();
-        //reciclador();
+        //popular();
+        reciclador();
     }
     protected void popular(){
         //popular a lista de alunos

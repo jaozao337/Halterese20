@@ -129,8 +129,10 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btAdicionarTreino"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptAddDescricaoTreino">
+            app:layout_constraintTop_toBottomOf="@+id/ptAddDescricaoTreino"
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -138,7 +140,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
@@ -147,6 +149,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvExerciciosTreino"
+                android:layout_width="322dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="72dp"
+                android:ems="10"
+                android:hint="@string/DescricaoExercicioTreino"
+                android:inputType="text"
+                android:textColor="@color/cor_principal"
+                android:textColorHighlight="@color/cor_principal"
+                android:textColorHint="@color/cor_principal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ptAddDuracaoTreino" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
