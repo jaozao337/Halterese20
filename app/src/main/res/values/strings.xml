@@ -108,5 +108,6 @@
     <string name="CronogramaAluno">Seu Cronograma!</string>
     <string name="SeuTreinoDeHoje">Seu Treino De Hoje</string>
     <string name="AquiDescricaoDoTreino">Aqui Vai A Descricao Do Treino</string>
+    <string name="LoginWithEmail">Login Com E-mail</string>
 
 </resources>

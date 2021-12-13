@@ -8,6 +8,8 @@ import android.widget.*;
 import androidx.appcompat.app.*;
 
 import com.solagna.haltere_se20.Controller.LoginController;
+import com.solagna.haltere_se20.Helper.AlunoDAO;
+import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.R;
 
 public class LoginView extends AppCompatActivity {
@@ -75,10 +77,13 @@ private void botaoEntrarTreinador(){
             @Override
             public void onClick(View view) {
             //aqui ele tem que mandar pro controller pra mandar pro back
+
                if(getCampos()) {
-                   if (LoginController.realizarLogin(login, senha)) {
+                LoginController lc = new LoginController(getApplicationContext());
+                   if (lc.realizarLogin(login, senha)) {
                        Intent intent = new Intent(getApplicationContext(), PrincipalAlunoView.class);
                        startActivity(intent);
+                       Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
                        finish();
                    }else {
                        Toast.makeText(LoginView.this, "Usuário ou senha inválido", Toast.LENGTH_SHORT).show();

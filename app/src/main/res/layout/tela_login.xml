@@ -40,8 +40,8 @@
             android:layout_height="wrap_content"
             android:background="@color/cor2"
             android:fontFamily="@font/roboto"
-            android:hint="Login"
-            android:inputType="number"
+            android:hint="@string/LoginWithEmail"
+            android:inputType="text|textEmailSubject"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />

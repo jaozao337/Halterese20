@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.MainController;
@@ -150,7 +151,6 @@ public class AlunoDAO implements BaseDAO{
                 Aluno aluno = new Aluno();
 
                 Integer id = c.getInt(c.getColumnIndex("id"));
-
                 String nome = c.getString(c.getColumnIndex("nome"));
                 String cpf = c.getString(c.getColumnIndex("cpf"));
                 String senha = c.getString(c.getColumnIndex("senha"));
@@ -178,6 +178,25 @@ public class AlunoDAO implements BaseDAO{
         }
 
         return alunos;
-
     }
+
+    public Aluno validarLogin(String login, String senha) {
+        SQLiteDatabase le = MainController.db.getReadableDatabase();
+
+        //String[] selectionArgs = new String[]{login, senha};
+
+        String sql = "SELECT * FROM "+  DataBase.TABELA_ALUNOS +" WHERE email=\'"+login+"\' AND senha =\'"+senha+"\';";
+        Cursor cursor = le.rawQuery(sql, null);
+
+        Aluno alunoLogin = null;
+        while (cursor.moveToNext() && cursor!=null) {
+            alunoLogin = new Aluno();
+            alunoLogin.setNome(cursor.getString(cursor.getColumnIndex("email")));
+            alunoLogin.setSenha(cursor.getString(cursor.getColumnIndex("senha")));
+        }
+        cursor.close();
+        return alunoLogin;
+    }
+
+
 }
