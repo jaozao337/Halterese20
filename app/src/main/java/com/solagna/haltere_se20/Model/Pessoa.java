@@ -2,10 +2,17 @@ package com.solagna.haltere_se20.Model;
 
 public abstract class Pessoa {
    private String nome, cpf, senha, email;
-private int id;
+private String id;
     public Pessoa(){
 
+    }  public Pessoa(String nome, String cpf, String senha, String email, String id){
+        this.nome = nome;
+        this.id=id;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.email = email;
     }
+
 
     public Pessoa(String nome, String cpf, String senha, String email){
         this.nome = nome;
@@ -57,7 +64,10 @@ private int id;
                 '}';
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id=id;
+    }
+    public String getId() {
+        return this.id;
     }
 }

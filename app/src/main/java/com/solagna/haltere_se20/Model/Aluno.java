@@ -15,6 +15,14 @@ public class Aluno extends Pessoa{
         this.altura = altura;
     }
 
+    public Aluno(String nome, String cpf, String senha, String email, String cargaHoraria, String observacoes, int peso, int altura,String id) {
+        super(nome, cpf, senha, email,id);
+        this.cargaHoraria = cargaHoraria;
+        this.observacoes = observacoes;
+        this.peso = peso;
+        this.altura = altura;
+    }
+
     public String getCargaHoraria() {
         return cargaHoraria;
     }

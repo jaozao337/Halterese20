@@ -33,8 +33,8 @@ public class MainController extends AppCompatActivity {
         db = new DataBase( getApplicationContext() );
 
         AlunoController alunoController = new AlunoController(getApplicationContext());
-        alunoController.cadastrarAluno("Gustavo","123","3","gu@gu","12","lindo",66000,171);
-        alunoController.cadastrarAluno("Jose","3233","1","em","11","fea",54223,154);
+      //  alunoController.cadastrarAluno("Gustavo","123","3","gu@gu","12","lindo",66000,171);
+       // alunoController.cadastrarAluno("Jose","3233","1","em","11","fea",54223,154);
         TreinadorController treinadorController = new TreinadorController(getApplicationContext());
         treinadorController.cadastrarTreinador("Joao Bala", "123","5","jp@jp",1000);
         //TreinoController treinoController = new TreinoController(getApplicationContext());

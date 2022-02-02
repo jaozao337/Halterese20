@@ -2,12 +2,16 @@ package com.solagna.haltere_se20.View;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
 import androidx.appcompat.app.*;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.solagna.haltere_se20.Controller.LoginController;
+import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.Helper.AlunoDAO;
 import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.R;
@@ -42,7 +46,7 @@ public class LoginView extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
                 intent.putExtra("Titulo", getString(R.string.TITULO_ALUNO_CADASTRANDO));
                 startActivity(intent);
-                finish();
+             //   finish();
             }
         });
     }
@@ -71,28 +75,31 @@ private void botaoEntrarTreinador(){
             return true;
          }
     }
-
     public void botaoLogin(){
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             //aqui ele tem que mandar pro controller pra mandar pro back
-
                if(getCampos()) {
                 LoginController lc = new LoginController(getApplicationContext());
+                   boolean logaAluno= lc.realizarLoginAluno(login, senha);
+                   Log.i("DATABASE", logaAluno+"a");
                    if (lc.realizarLoginAluno(login, senha)) {
+                       Log.i("DATABASE","tentnado entrar aluno");
                        Intent intent = new Intent(getApplicationContext(), PrincipalAlunoView.class);
                        startActivity(intent);
                        Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
                        finish();
-                   }else if(lc.realizarLoginTreinador(login, senha)) {
+                   }
+                   /* if(lc.realizarLoginTreinador(login, senha)) {
+                       Log.i("DATABASE","tentnado entrar treianmaodr");
                            Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
                            startActivity(intent);
                            Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
                            finish();
                    }else{
                        Toast.makeText(LoginView.this, "Usuário ou senha inválido", Toast.LENGTH_SHORT).show();
-                   }
+                   }*/
                }
             }
         });

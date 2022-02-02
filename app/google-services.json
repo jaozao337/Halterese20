@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "653865490259",
+    "project_id": "haltere-se",
+    "storage_bucket": "haltere-se.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653865490259:android:d6e1ee1ba0acb8ee8773a6",
+        "android_client_info": {
+          "package_name": "com.solagna.haltere_se20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653865490259-7mua35d2kn3io6gs8snsgpvj4jodpam3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.solagna.haltere_se20",
+            "certificate_hash": "4cb19c60da5dc139e6b91f65e9226cdf9fc6efe9"
+          }
+        },
+        {
+          "client_id": "653865490259-2j3lh0icik5d3t235lbfh8d8k3hsfpjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW9OwmYiUywUx-kJk-ICHYLvnoZY2EHhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653865490259-2j3lh0icik5d3t235lbfh8d8k3hsfpjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
