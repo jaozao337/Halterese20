@@ -1,13 +1,25 @@
 package com.solagna.haltere_se20.View;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.*;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.solagna.haltere_se20.Controller.LoginController;
@@ -19,9 +31,11 @@ import com.solagna.haltere_se20.R;
 public class LoginView extends AppCompatActivity {
     private Button btLogin, btSouTreinador,btCadastrar;
     private String login, senha;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -56,9 +70,9 @@ private void botaoEntrarTreinador(){
     btSouTreinador.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
-            startActivity(intent);
-            finish();
+           Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
+           startActivity(intent);
+           finish();
         }
     });
 }
@@ -81,31 +95,40 @@ private void botaoEntrarTreinador(){
             public void onClick(View view) {
             //aqui ele tem que mandar pro controller pra mandar pro back
                if(getCampos()) {
-                LoginController lc = new LoginController(getApplicationContext());
-                   boolean logaAluno= lc.realizarLoginAluno(login, senha);
-                   Log.i("DATABASE", logaAluno+"a");
-                   if (lc.realizarLoginAluno(login, senha)) {
-                       Log.i("DATABASE","tentnado entrar aluno");
-                       Intent intent = new Intent(getApplicationContext(), PrincipalAlunoView.class);
-                       startActivity(intent);
-                       Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
-                       finish();
-                   }
-                   /* if(lc.realizarLoginTreinador(login, senha)) {
-                       Log.i("DATABASE","tentnado entrar treianmaodr");
-                           Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
-                           startActivity(intent);
-                           Toast.makeText(LoginView.this, "Logou Com Sucesso", Toast.LENGTH_SHORT).show();
-                           finish();
-                   }else{
-                       Toast.makeText(LoginView.this, "Usuário ou senha inválido", Toast.LENGTH_SHORT).show();
-                   }*/
+                   mAuth.signInWithEmailAndPassword(login, senha)
+                           .addOnCompleteListener(LoginView.this, new OnCompleteListener<AuthResult>() {
+                               @Override
+                               public void onComplete(@NonNull Task<AuthResult> task) {
+                                   if (task.isSuccessful()) {
+                                       Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
+                                       startActivity(intent);
+                                       Snackbar snackbar = Snackbar.make(view, "Login concluido com sucesso", Snackbar.LENGTH_SHORT);
+                                       snackbar.setBackgroundTint(Color.BLACK);
+                                       snackbar.setTextColor(Color.WHITE);
+                                       snackbar.show();
+                                       finish();
+                                       FirebaseUser user = mAuth.getCurrentUser();
+                                   } else {
+                                       String erro;
+                                       try {
+                                           throw task.getException();
+                                       } catch(FirebaseAuthInvalidCredentialsException e) {
+                                           erro = "usuario ou senha invalidos";
+                                       } catch(Exception e){
+                                           erro = "erro desconhecido";
+                                       }
+
+                                       Snackbar snackbar = Snackbar.make(view, erro, Snackbar.LENGTH_SHORT);
+                                       snackbar.setBackgroundTint(Color.BLACK);
+                                       snackbar.setTextColor(Color.WHITE);
+                                       snackbar.show();
+                                   }
+                               }
+                           });
                }
             }
         });
     }
 
 
-
-
-}
+    }

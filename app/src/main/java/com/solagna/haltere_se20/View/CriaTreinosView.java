@@ -1,6 +1,7 @@
 package com.solagna.haltere_se20.View;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.solagna.haltere_se20.Adapter.adapterListarExercicioTreino;
 import com.solagna.haltere_se20.Controller.AlunoController;
 import com.solagna.haltere_se20.Controller.ExercicioController;
@@ -73,7 +75,6 @@ public class CriaTreinosView extends AppCompatActivity {
 
         ExercicioController exercicioController = new ExercicioController(getApplicationContext());
         listaExercicio = exercicioController.listarExercicio();
-
 
         recyclerView = findViewById(R.id.recyclerView);
         adapterListarExercicioTreino adaptador = new adapterListarExercicioTreino(listaExercicio);

@@ -6,12 +6,17 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,40 +26,38 @@ import com.google.firebase.database.ValueEventListener;
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.MainController;
 import com.solagna.haltere_se20.Model.Aluno;
+import com.solagna.haltere_se20.View.CriaEditaAlunoView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 public class AlunoDAO implements BaseDAO{
     private SQLiteDatabase escreve;
     private SQLiteDatabase le;
     private DatabaseReference bancoDeDados;
+    private FirebaseAuth auth;
+    private Context contextt;
 
     public AlunoDAO(Context context) {
+        auth = FirebaseAuth.getInstance();
         bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Pessoas");
         //DataBase = new DataBase( context );
+        contextt = context;
         escreve = MainController.db.getWritableDatabase();
         le = MainController.db.getReadableDatabase();
     }
 
-
     @Override
     public boolean salvar(Object obj) {
-
-
         Aluno aln= (Aluno) obj;
-
         if(aln != null){
-            String mGroupId = bancoDeDados.child("Alunos").push().getKey();
-            aln.setId(mGroupId);
-            bancoDeDados.child("Alunos").child(mGroupId).setValue(aln);
-
             return true;
         }else{
             return false;
         }
-
     }
+
     private void tira(String id){
         DatabaseReference aluno =bancoDeDados.child(id);
         aluno.removeValue();
@@ -130,7 +133,6 @@ return true;
 
     public List<Aluno> listarAlunos() {
         alunos.clear();
-
 
         DatabaseReference alunosdb= bancoDeDados.child("Alunos");
         Query pesquisaAluno = alunosdb.orderByChild("cpf");

@@ -6,10 +6,22 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.MainController;
+import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.Model.Exercicio;
+import com.solagna.haltere_se20.View.CriaEditaAlunoView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +29,13 @@ import java.util.List;
 public class ExercicioDAO implements BaseDAO{
     private SQLiteDatabase escreve;
     private SQLiteDatabase le;
+    private DatabaseReference bancoDeDados;
+    private FirebaseAuth auth;
 
     public ExercicioDAO(Context context) {
         //DataBase = new DataBase( context );
+        auth = FirebaseAuth.getInstance();
+        bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Servicos");
         escreve = MainController.db.getWritableDatabase();
         le = MainController.db.getReadableDatabase();
     }
@@ -27,50 +43,41 @@ public class ExercicioDAO implements BaseDAO{
     @Override
     public boolean salvar(Object obj) {
         Exercicio ex= (Exercicio) obj;
-        /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
-        ContentValues cv = new ContentValues();
-        cv.put("nome", ex.getNome() );
-        cv.put("peso", ex.getPeso() );
-        cv.put("tipo", ex.getTipo() );
-        cv.put("repeticoes", ex.getRepeticoes() );
-        cv.put("series", ex.getSeries() );
-        cv.put("descricao", ex.getDescricao() );
-        cv.put("duracao", ex.getDuracao() );
-
-
-        /*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
-        try {
-            escreve.insert(DataBase.TABELA_EXERCICIOS, null, cv );
-            Log.i("INFO", "Exercicio salvo com sucesso!");
-        }catch (Exception e){
-            Log.e("INFO", "Erro ao salvar Exercicio " + e.getMessage() );
+        if(ex != null) {
+            /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
+            String mGroupId = bancoDeDados.child("Exercicios").push().getKey();
+            ex.setId(mGroupId);
+            bancoDeDados.child("Exercicios").child(mGroupId).setValue(ex);
+            return true;
+        }else{
             return false;
         }
-
-        return true;
     }
 
     @Override
     public boolean atualizar(Object obj) {
         Exercicio ex= (Exercicio) obj;
-        /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
-        ContentValues cv = new ContentValues();
-        cv.put("nome", ex.getNome() );
-        cv.put("peso", ex.getPeso() );
-        cv.put("tipo", ex.getTipo() );
-        cv.put("repeticoes", ex.getRepeticoes() );
-        cv.put("series", ex.getSeries() );
-        cv.put("descricao", ex.getDescricao() );
-        cv.put("duracao", ex.getDuracao() );
+        DatabaseReference exercicios = bancoDeDados.child("Exercicios");
+        Query pesquisaExercicio = exercicios.orderByChild("id").equalTo(ex.getId());
+        pesquisaExercicio.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null){
+                    List<Exercicio> lista= new ArrayList<>();
+                    for(DataSnapshot dt: snapshot.getChildren()){
+                        Exercicio a =  dt.getValue(Exercicio.class);
+                        lista.add(a);
+                    }
+                    exercicios.child(lista.get(0).getId()).setValue(ex);
+                }
 
-        try {
-            String[] args = {ex.getNome().toString()};
-            escreve.update(DataBase.TABELA_EXERCICIOS, cv, "Nome=? ", args);
-            Log.i("INFO", "Exercicio atualizado com sucesso!");
-        }catch (Exception e){
-            Log.e("INFO", "Erro ao atualizar Exercicio " + e.getMessage() );
-            return false;
-        }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         return true;
     }
 
@@ -96,43 +103,33 @@ public class ExercicioDAO implements BaseDAO{
     }
 
 
+
     public List<Exercicio> listarExercicios() {
-        List<Exercicio> exercicios = new ArrayList<>();
+        exercicios.clear();
 
-        String sql = "SELECT * FROM " + DataBase.TABELA_EXERCICIOS + " ;";
-        Cursor c = le.rawQuery(sql, null);
+        DatabaseReference exercicioDB= bancoDeDados.child("Exercicios");
+        Query pesquisaExercicio = exercicioDB.orderByChild("id");
+        pesquisaExercicio.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null){
+                    for(DataSnapshot dt: snapshot.getChildren()){
+                        Exercicio a = dt.getValue(Exercicio.class);
+                        exercicios.add(a);
+                    }
+                }
 
-        while (c.moveToNext()) {
+            }
 
-            Exercicio exercicio = new Exercicio();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-            /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
-            Long id = c.getLong( c.getColumnIndex("id") );
-            String nome = c.getString(c.getColumnIndex("nome"));
-            String tipo = c.getString(c.getColumnIndex("tipo"));
-            String descricao = c.getString(c.getColumnIndex("descricao"));
-            int duracao = Integer.parseInt(c.getString(c.getColumnIndex("duracao")));
-            int series = Integer.parseInt(c.getString(c.getColumnIndex("series")));
-            int peso = Integer.parseInt(c.getString(c.getColumnIndex("peso")));
-            int repeticoes = Integer.parseInt(c.getString(c.getColumnIndex("repeticoes")));
-
-            /*/*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
-            exercicio.setId( id );
-            exercicio.setNome(nome);
-            exercicio.setTipo(tipo);
-            exercicio.setDescricao(descricao);
-            exercicio.setDuracao(duracao);
-            exercicio.setSeries(series);
-            exercicio.setPeso(peso);
-            exercicio.setRepeticoes(repeticoes);
-
-
-            exercicios.add(exercicio);
-            Log.i("ExercicioDAO", exercicio.getNome());
-        }
-
+            }
+        });
         return exercicios;
     }
+
+    List<Exercicio> exercicios = new ArrayList<>();
 
     public List<Exercicio> buscar(String busca) {
         List<Exercicio> exercicios = new ArrayList<>();

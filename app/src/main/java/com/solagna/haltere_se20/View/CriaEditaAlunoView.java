@@ -1,7 +1,9 @@
 package com.solagna.haltere_se20.View;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -10,10 +12,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.solagna.haltere_se20.Controller.AlunoController;
+import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.R;
 
 
@@ -23,9 +37,13 @@ public class CriaEditaAlunoView extends AppCompatActivity {
     private int peso, altura;
     private AlunoController ec;
     EditText Tnome, Tcpf, Tsenha, Temail, TcargaHoraria, Tobservacoes, Tpeso, Taltura;
+    private FirebaseAuth auth;
+    private DatabaseReference bancoDeDados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        auth = FirebaseAuth.getInstance();
+        bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Pessoas");
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -104,9 +122,42 @@ public class CriaEditaAlunoView extends AppCompatActivity {
                         }
                     }else {
                         if (ec.cadastrarAluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura)) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Salvo com sucesso", Toast.LENGTH_SHORT);
-                            toast.show();
-                            finish();
+                            auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()){
+                                        Aluno aln = new Aluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura);
+                                        String mGroupId = bancoDeDados.child("Alunos").push().getKey();
+                                        aln.setId(mGroupId);
+                                        bancoDeDados.child("Alunos").child(mGroupId).setValue(aln);
+                                        Toast toast = Toast.makeText(CriaEditaAlunoView.this, "Salvo com sucesso", Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        finish();
+                                    }else{
+                                        String erro;
+                                        try {
+                                            throw task.getException();
+                                        }catch(FirebaseAuthUserCollisionException e) {
+                                            erro = "usuario ja registrado";
+                                        } catch(FirebaseAuthWeakPasswordException e) {
+                                            erro = "senha muito fraca";
+                                        } catch(FirebaseAuthInvalidCredentialsException e){
+                                            erro = "email invalido";
+                                        } catch(Exception e){
+                                            erro = "erro desconhecido";
+                                        }
+
+                                        Snackbar snackbar = Snackbar.make(view, erro, Snackbar.LENGTH_SHORT);
+                                        snackbar.setBackgroundTint(Color.BLACK);
+                                        snackbar.setTextColor(Color.WHITE);
+                                        snackbar.show();
+                                        //Toast toast = Toast.makeText(getApplicationContext(), "Algum campo foi preenchido incorretamente", Toast.LENGTH_SHORT);
+                                        //toast.show();
+                                        Log.i("adm", "cadastro falhou");
+                                    }
+                                }
+                            });
+
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(), "Houve um problema ao salvar", Toast.LENGTH_SHORT);
                             toast.show();
@@ -165,6 +216,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
 
         //EditText email=  findViewById(R.id.ptEmailAluno);
         Temail.setText(email);
+        Temail.setEnabled(false);
 
         //EditText peso=  findViewById(R.id.ptPesoAluno);
         Tpeso.setText(Integer.toString(peso));
@@ -183,6 +235,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
 
         //EditText senha=  findViewById(R.id.ptSenhaAluno);
         Tsenha.setText(bundle.getString("senha"));
+        Tsenha.setEnabled(false);
 
     }
 

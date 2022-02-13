@@ -118,9 +118,10 @@ public class CriaExercicioView extends AppCompatActivity {
         btAdicionarExercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast ee = Toast.makeText(getApplicationContext(), "aoba", Toast.LENGTH_SHORT);
-                ee.show();
+
                 if (getDados()) {
+                    Toast ee = Toast.makeText(getApplicationContext(), "aoba", Toast.LENGTH_SHORT);
+                    ee.show();
                     if (ec.cadastrarExercicio( nome,tipo,peso,repeticoes,series,descricao,duracao)) {
                         Toast toast = Toast.makeText(getApplicationContext(), "Salvo com sucesso", Toast.LENGTH_SHORT);
                         toast.show();

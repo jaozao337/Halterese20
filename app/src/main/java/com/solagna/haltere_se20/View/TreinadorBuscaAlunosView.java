@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,9 +38,6 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
     private List<Aluno> listaAlunos = new ArrayList<Aluno>();
     private adapterListaAluno adaptador;
     private EditText Tnome;
-    public TreinadorBuscaAlunosView() {
-
-    }
 
     private  void criarListeners(){
         botaoCadastrar();
@@ -101,6 +99,7 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         AlunoController alunoController = new AlunoController(getApplicationContext());
         reciclador();
     }
+
     public void reciclador() {
         //pega os dados e joga pro adp.
         recyclerView = findViewById(R.id.rvListarAlunos);
@@ -111,7 +110,6 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.removeAllViews();
         recyclerView.setAdapter(adaptador);
-
 
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {

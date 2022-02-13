@@ -4,7 +4,7 @@ public class Exercicio {
 
     private String nome,tipo,descricao;
     private int peso, repeticoes, series, duracao;
-    private Long id;
+    private String id;
 
 
     public Exercicio(){}
@@ -75,11 +75,11 @@ public class Exercicio {
         this.duracao = duracao;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
