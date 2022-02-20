@@ -20,8 +20,12 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.solagna.haltere_se20.Controller.LoginController;
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.Helper.AlunoDAO;
@@ -32,9 +36,11 @@ public class LoginView extends AppCompatActivity {
     private Button btLogin, btSouTreinador,btCadastrar;
     private String login, senha;
     private FirebaseAuth mAuth;
+    private DatabaseReference bancoDeDados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Pessoas");
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -100,14 +106,48 @@ private void botaoEntrarTreinador(){
                                @Override
                                public void onComplete(@NonNull Task<AuthResult> task) {
                                    if (task.isSuccessful()) {
-                                       Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
-                                       startActivity(intent);
-                                       Snackbar snackbar = Snackbar.make(view, "Login concluido com sucesso", Snackbar.LENGTH_SHORT);
-                                       snackbar.setBackgroundTint(Color.BLACK);
-                                       snackbar.setTextColor(Color.WHITE);
-                                       snackbar.show();
-                                       finish();
-                                       FirebaseUser user = mAuth.getCurrentUser();
+                                       Query clientePesquisa = bancoDeDados.child("Alunos").orderByChild("email").equalTo(login);
+                                       clientePesquisa.addValueEventListener(new ValueEventListener() {
+                                           @Override
+                                           public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                               for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                                                   Intent clienteTela = new Intent(getApplicationContext(), PrincipalAlunoView.class);
+                                                   clienteTela.putExtra("email", login);
+                                                   clienteTela.putExtra("cpf", postSnapshot.getValue(Aluno.class).getCpf());
+                                                   clienteTela.putExtra("nome", postSnapshot.getValue(Aluno.class).getNome());
+                                                   startActivity(clienteTela);
+                                                   Snackbar snackbar = Snackbar.make(view, "Login concluido com sucesso", Snackbar.LENGTH_SHORT);
+                                                   snackbar.setBackgroundTint(Color.BLACK);
+                                                   snackbar.setTextColor(Color.WHITE);
+                                                   snackbar.show();
+                                                   finish();
+                                               }
+                                           }
+
+                                           @Override
+                                           public void onCancelled(@NonNull DatabaseError error) {
+                                           }
+                                       });
+                                       Query FuncionarioPesquisa = bancoDeDados.child("Treinadores").orderByChild("email").equalTo(login);
+                                       FuncionarioPesquisa.addValueEventListener(new ValueEventListener() {
+                                           @Override
+                                           public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                               for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                                                   Intent intent = new Intent(getApplicationContext(), TreinadorView.class);
+                                                   startActivity(intent);
+                                                   Snackbar snackbar = Snackbar.make(view, "Login concluido com sucesso", Snackbar.LENGTH_SHORT);
+                                                   snackbar.setBackgroundTint(Color.BLACK);
+                                                   snackbar.setTextColor(Color.WHITE);
+                                                   snackbar.show();
+                                                   finish();
+                                               }
+                                           }
+
+                                           @Override
+                                           public void onCancelled(@NonNull DatabaseError error) {
+                                               Log.i("teste", "teste");
+                                           }
+                                       });
                                    } else {
                                        String erro;
                                        try {

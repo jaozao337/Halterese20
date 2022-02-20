@@ -6,9 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.MainController;
 import com.solagna.haltere_se20.Model.Aluno;
+import com.solagna.haltere_se20.Model.Exercicio;
 import com.solagna.haltere_se20.Model.Treino;
 import com.solagna.haltere_se20.Model.TreinoExercicio;
 
@@ -18,32 +21,26 @@ import java.util.List;
 public class TreExeDAO implements BaseDAO{
     private SQLiteDatabase escreve;
     private SQLiteDatabase le;
+    private DatabaseReference bancoDeDados;
 
     public TreExeDAO(Context context) {
         //DataBase = new DataBase( context );
         escreve = MainController.db.getWritableDatabase();
         le = MainController.db.getReadableDatabase();
+        bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Servicos");
     }
 
     @Override
     public boolean salvar(Object obj) {
-        TreinoExercicio te= (TreinoExercicio) obj;
-
-        ContentValues cv = new ContentValues();
-        cv.put("idTreinoExercicio", te.getTreinoID() + "/" + te.getExercicioID());
-        cv.put("idExercicio", te.getExercicioID() );
-        cv.put("idTreino", te.getTreinoID() );
-
-        /*nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura */
-        try {
-            escreve.insert(DataBase.TABELA_ALUNOS, null, cv );
-            Log.i("INFO", "Conexão salva com sucesso!");
-        }catch (Exception e){
-            Log.e("INFO", "Erro ao salvar conexão " + e.getMessage() );
+        TreinoExercicio ex= (TreinoExercicio) obj;
+        if(ex != null) {
+            /*nome, peso, tipo,  repeticoes,  series, descricao, duracao*/
+            String mGroupId = bancoDeDados.child("TreinoExercicios").push().getKey();
+            bancoDeDados.child("TreinoExercicios").child(mGroupId).setValue(ex);
+            return true;
+        }else{
             return false;
         }
-
-        return true;
     }
 
     @Override
@@ -71,50 +68,6 @@ public class TreExeDAO implements BaseDAO{
     }
 
     public List<TreinoExercicio> listarTreinoExercicio(){
-        List<TreinoExercicio> teLista = new ArrayList<>();
-
-        String sql = "SELECT * FROM " + DataBase.TABELA_TREINO_EXERCICIOS + " ;";
-        Cursor c = le.rawQuery(sql, null);
-
-        while ( c.moveToNext() && c!=null ){
-
-            TreinoExercicio te = new TreinoExercicio();
-
-            Integer idExercicio = c.getInt( c.getColumnIndex("idExercicio") );
-            Integer idTreino = c.getInt( c.getColumnIndex("idTreino") );
-            //String idTreinoExercicio = c.getString( c.getColumnIndex("idTreinoExercicio") );
-
-            te.setExercicioID(idExercicio);
-            te.setTreinoID(idTreino);
-
-            teLista.add( te );
-            Log.i("TreinoExercicioDao", te.toString() );
-
-        }
-
-        return teLista;
-    }
-
-    public List<TreinoExercicio> buscar(String busca) {
-        List<TreinoExercicio> teLista = new ArrayList<>();
-
-        String sql = "SELECT * FROM " + DataBase.TABELA_TREINO_EXERCICIOS + " WHERE idTreinoExercicio LIKE '%" + busca + "%' ;";
-        Cursor c = le.rawQuery(sql, null);
-
-        while ( c.moveToNext() && c!=null ){
-            TreinoExercicio te = new TreinoExercicio();
-
-            Integer idExercicio = c.getInt( c.getColumnIndex("idExercicio") );
-            Integer idTreino = c.getInt( c.getColumnIndex("idTreino") );
-
-            te.setExercicioID(idExercicio);
-            te.setTreinoID(idTreino);
-
-            teLista.add(te);
-            Log.i("TreinoExercicioDAO", teLista.toString());
-        }
-
-        return teLista;
-
+        return null;
     }
 }

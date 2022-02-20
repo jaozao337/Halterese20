@@ -19,7 +19,7 @@ public class TreinoExercicioController {
         treExeDAO = new TreExeDAO(context);
     }
 
-    public boolean cadastrarTreinoExercicio(int idTreino, int idExercicio){
+    public boolean cadastrarTreinoExercicio(String idTreino, String idExercicio){
         TreinoExercicio treExe = new TreinoExercicio(idTreino, idExercicio);
         //cadastra usando o DAO
         return treExeDAO.salvar(treExe);

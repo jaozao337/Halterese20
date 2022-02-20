@@ -9,17 +9,19 @@
         android:roundIcon="@drawable/iconclean"
         android:supportsRtl="true"
         android:theme="@style/Theme.Halterese20">
-        <activity android:name=".View.LoginView"></activity>
-        <activity android:name=".View.TreinadorView"></activity>
-        <activity android:name=".View.PrincipalAlunoView"></activity>
-        <activity android:name=".View.TreinadorBuscaAlunosView"></activity>
-        <activity android:name=".View.CriaEditaAlunoView"></activity>
-        <activity android:name=".View.CriaTreinosView"></activity>
-        <activity android:name=".View.TreinadorBuscaTreinosView"></activity>
-        <activity android:name=".View.ExercicioView"></activity>
-        <activity android:name=".View.CriaExercicioView"></activity>
-        <activity android:name=".View.CriaEditaTreinadorView"></activity>
-
+        <activity
+            android:name=".View.AlunoTreinoView"
+            android:exported="false" />
+        <activity android:name=".View.LoginView" />
+        <activity android:name=".View.TreinadorView" />
+        <activity android:name=".View.PrincipalAlunoView" />
+        <activity android:name=".View.TreinadorBuscaAlunosView" />
+        <activity android:name=".View.CriaEditaAlunoView" />
+        <activity android:name=".View.CriaTreinosView" />
+        <activity android:name=".View.TreinadorBuscaTreinosView" />
+        <activity android:name=".View.ExercicioView" />
+        <activity android:name=".View.CriaExercicioView" />
+        <activity android:name=".View.CriaEditaTreinadorView" />
         <activity android:name=".MainController">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

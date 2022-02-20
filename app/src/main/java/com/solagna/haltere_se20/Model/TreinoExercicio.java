@@ -1,29 +1,29 @@
 package com.solagna.haltere_se20.Model;
 
 public class TreinoExercicio {
-    private int exercicioID, treinoID;
+    private String exercicioID, treinoID;
 
     public TreinoExercicio() {
     }
 
-    public  TreinoExercicio(int exercicioID, int treinoID) {
+    public  TreinoExercicio(String exercicioID, String treinoID) {
         this.exercicioID = exercicioID;
         this.treinoID = treinoID;
     }
 
-    public int getTreinoID() {
+    public String getTreinoID() {
         return treinoID;
     }
 
-    public void setTreinoID(int treinoID) {
+    public void setTreinoID(String treinoID) {
         this.treinoID = treinoID;
     }
 
-    public int getExercicioID() {
+    public String getExercicioID() {
         return exercicioID;
     }
 
-    public void setExercicioID(int exercicioID) {
+    public void setExercicioID(String exercicioID) {
         this.exercicioID = exercicioID;
     }
 

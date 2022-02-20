@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -20,6 +21,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.solagna.haltere_se20.Adapter.adapterListaAluno;
 import com.solagna.haltere_se20.Controller.AlunoController;
 import com.solagna.haltere_se20.Helper.RecyclerItemClickListener;
@@ -38,10 +45,12 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
     private List<Aluno> listaAlunos = new ArrayList<Aluno>();
     private adapterListaAluno adaptador;
     private EditText Tnome;
+    private DatabaseReference bancoDeDados;
 
     private  void criarListeners(){
         botaoCadastrar();
         botaoBuscar();
+        recicladorListener();
     }
 
     private void botaoBuscar(){
@@ -51,9 +60,33 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
                 String busca = Tnome.getText().toString();
                 AlunoController alunoController = new AlunoController(getApplicationContext());
                 listaAlunos.clear();
-                listaAlunos = alunoController.procurarAlunoNome(busca);
+                procurarAluno(busca);
+
+            }
+        });
+    }
+
+    private void procurarAluno(String busca){
+        listaAlunos.clear();
+
+        DatabaseReference alunosdb= bancoDeDados.child("Alunos");
+        Query pesquisaAluno = alunosdb.orderByChild("nome").equalTo(busca);
+        pesquisaAluno.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null){
+                    for(DataSnapshot dt: snapshot.getChildren()){
+                        Aluno a =  dt.getValue(Aluno.class);
+                        listaAlunos.add(a);
+                    }
+                }
                 adaptador = new adapterListaAluno(listaAlunos);
                 recyclerView.setAdapter(adaptador);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
@@ -72,14 +105,12 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        AlunoController alunoController = new AlunoController(getApplicationContext());
-        listaAlunos = alunoController.listarAlunos();
-        adaptador = new adapterListaAluno(listaAlunos);
-        recyclerView.setAdapter(adaptador);
+        popular();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Pessoas");
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -88,16 +119,32 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         btCadastrarAluno = findViewById(R.id.btTelaAdicionarAluno);
         btBuscarAluno = findViewById(R.id.btBuscarAluno);
         Tnome = findViewById(R.id.ptExibirNomeAluno);
-        criarListeners();
-        //popular();
-        AlunoController alunoController = new AlunoController(getApplicationContext());
-        listaAlunos = alunoController.listarAlunos();
         reciclador();
+        criarListeners();
+        popular();
     }
     protected void popular(){
-        //popular a lista de alunos
-        AlunoController alunoController = new AlunoController(getApplicationContext());
-        reciclador();
+        listaAlunos.clear();
+
+        DatabaseReference alunosdb= bancoDeDados.child("Alunos");
+        Query pesquisaAluno = alunosdb.orderByChild("cpf");
+        pesquisaAluno.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null){
+                    for(DataSnapshot dt: snapshot.getChildren()){
+                        Aluno a =  dt.getValue(Aluno.class);
+                        listaAlunos.add(a);
+                    }
+                }
+                reciclador();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     public void reciclador() {
@@ -110,7 +157,9 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.removeAllViews();
         recyclerView.setAdapter(adaptador);
+    }
 
+    public void recicladorListener(){
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -132,16 +181,16 @@ public class TreinadorBuscaAlunosView extends AppCompatActivity {
     }
 
     public void alterarAluno (Aluno a){
-        Intent alterarAluno = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
-        alterarAluno.putExtra("Titulo", getString(R.string.TITULO_TREINADOR_MODIFICANDO));
-        alterarAluno.putExtra("nome", a.getNome());
-        alterarAluno.putExtra("email", a.getEmail());
-        alterarAluno.putExtra("cpf", a.getCpf());
-        alterarAluno.putExtra("senha", a.getSenha());
-        alterarAluno.putExtra("cargaHoraria", a.getCargaHoraria());
-        alterarAluno.putExtra("observacoes", a.getObservacoes());
-        alterarAluno.putExtra("peso", ""+a.getPeso());
-        alterarAluno.putExtra("altura", ""+a.getAltura());
-        startActivityForResult(alterarAluno,0);
+        Intent alteraAluno = new Intent(getApplicationContext(), CriaEditaAlunoView.class);
+        alteraAluno.putExtra("Titulo", getString(R.string.TITULO_TREINADOR_MODIFICANDO));
+        alteraAluno.putExtra("nome", a.getNome());
+        alteraAluno.putExtra("email", a.getEmail());
+        alteraAluno.putExtra("cpf", a.getCpf());
+        alteraAluno.putExtra("senha", a.getSenha());
+        alteraAluno.putExtra("cargaHoraria", a.getCargaHoraria());
+        alteraAluno.putExtra("observacoes", a.getObservacoes());
+        alteraAluno.putExtra("peso", ""+a.getPeso());
+        alteraAluno.putExtra("altura", ""+a.getAltura());
+        startActivityForResult(alteraAluno,0);
     }
 }

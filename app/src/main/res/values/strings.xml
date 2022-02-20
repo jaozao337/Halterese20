@@ -6,8 +6,10 @@
     <string name="TITULO_TREINADOR_CADASTRANDO">Cadastre um novo aluno</string>
     <string name="TITULO_TREINADOR_MODIFICANDO">Modifique o aluno</string>
     <string name="TITULO_TREINADOR_CRIA_TREINO">Treino Criado</string>
+    <string name="TITULO_ALUNO_VISUALIZA_TREINO">Visualizar Treino</string>
+    <string name="TITULO_ALUNO_VISUALIZA_EXERCICIO">Visualizar Exercicio</string>
+    <string name="TITULO_ALUNO_CRIA_EXERCICIO">Criar Exercicio</string>
     <string name="TITULO_TREINADOR_CRIA_EXERCICIO">Exercicío Criado</string>
-
 
 
     <string name="salvar">Salvar</string>
@@ -60,12 +62,14 @@
     <string name="ModificarAluno">Modificar Aluno</string>
     <string name="ModificarDadosDoAluno">Modificar Dados Do Aluno</string>
     <string name="ExcluirAluno">Excluir Aluno</string>
+    <string name="AdicionarTreinoAluno">Adicionar Treino</string>
     <string name="ModificarTreinadores">Modificar Treinadores</string>
     <string name="ModificarTreinador">Modificar Treinador</string>
     <string name="Treinador">Treinador:</string>
     <string name="NomeDoTreinador">Nome Treinador</string>
     <string name="AdicionarExercicios">Adicionar Exercícios</string>
     <string name="AdicionarExercicio">Adicionar Exercício</string>
+    <string name="DeletarExercicio">Deletar Exercício</string>
     <string name="BotaoBuscar">Botao de buscar</string>
     <string name="PESO">Imagem de um halter</string>
     <string name="AdicionarAluno">Adicionar Aluno</string>
@@ -95,8 +99,9 @@
     <string name="DigiteNomeDoTreino">Digite Aqui o Nome do Treino</string>
     <string name="DuracaoDoTreino">Digite Aqui a Duracão do Treino</string>
     <string name="DescricaoDoTreino">Digite Aqui a Descricão do Treino</string>
-    <string name="DescricaoExercicioTreino">Escolha pelo menos um exercicios</string>
+    <string name="DescricaoExercicioTreino">Escolha pelo menos um exercicio</string>
     <string name="AdicionarTreino">Adicionar Treino</string>
+    <string name="AdicionaTreinoAluno">Adicionar Treinos ao Aluno</string>
     <string name="SeriesRepeticoes">Series/Repetições</string>
     <string name="ModificaTreino">Modificar Treinos</string>
 

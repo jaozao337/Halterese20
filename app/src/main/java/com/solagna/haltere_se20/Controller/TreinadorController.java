@@ -7,6 +7,7 @@ import com.solagna.haltere_se20.Helper.AlunoDAO;
 import com.solagna.haltere_se20.Helper.TreinadorDAO;
 import com.solagna.haltere_se20.Model.Aluno;
 import com.solagna.haltere_se20.Model.Treinador;
+import com.solagna.haltere_se20.Model.Treino;
 import com.solagna.haltere_se20.View.TreinadorView;
 
 import java.util.List;
@@ -25,6 +26,5 @@ public class TreinadorController {
         //cadastra usando o dao
         return treinadorDAO.salvar(treinador);
     }
-
 
 }

@@ -51,9 +51,8 @@ public class CriaExercicioView extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         btAdicionarExercicio = findViewById(R.id.btCadastrarExercicio);
-
-        //atualizarTitulo();
-        //reciclador();
+        setTexts();
+        atualizarTitulo();
 
         criarListeners();
     }
@@ -63,6 +62,16 @@ public class CriaExercicioView extends AppCompatActivity {
         ec = new ExercicioController(getApplicationContext());
     }
 
+    private void setTexts(){
+        Tnome = findViewById(R.id.ptNomeExercicio);
+        Tdescricao = findViewById(R.id.ptDescricaoExercicio);
+        Tpeso = findViewById(R.id.ptPesoExercicio);
+        Tduracao = findViewById(R.id.ptTempoExercicio);
+        Tseries = findViewById(R.id.ptSerieExercicio);
+        Trepeticoes = findViewById(R.id.ptRepeticoesExercicio);
+        cardio= findViewById(R.id.cpTipoMusc);
+        muscular= findViewById(R.id.cpTipoCard);
+    }
 
     private boolean getDados() {
         Tnome = findViewById(R.id.ptNomeExercicio);
@@ -91,8 +100,8 @@ public class CriaExercicioView extends AppCompatActivity {
             repeticoes = Integer.parseInt(Trepeticoes.getText().toString());
         }
 
-        cardio= findViewById(R.id.cpTipoCard);
-        muscular= findViewById(R.id.cpTipoMusc);
+        cardio= findViewById(R.id.cpTipoMusc);
+        muscular= findViewById(R.id.cpTipoCard);
         if(cardio.isChecked()){
             tipo = "Exercício Cardiovascular";
         }else{
@@ -146,6 +155,37 @@ public class CriaExercicioView extends AppCompatActivity {
 
         if(titulo.equals(getString(R.string.TITULO_TREINADOR_CRIA_EXERCICIO))){
             //editandoTreino(b);
+        }
+        if(titulo.equals(getString(R.string.TITULO_ALUNO_VISUALIZA_EXERCICIO))){
+            visualizandoExercicio(b);
+        }
+    }
+
+    private void visualizandoExercicio(Bundle bundle){
+        btAdicionarExercicio.setVisibility(View.GONE);
+        Tnome.setText(bundle.getString("nome"));
+        Tnome.setEnabled(false);
+        Tdescricao.setText(bundle.getString("descricao"));
+        Tdescricao.setEnabled(false);
+        Tpeso.setText(Integer.toString(bundle.getInt("peso")));
+        Tpeso.setEnabled(false);
+        Tduracao.setText(Integer.toString(bundle.getInt("duracao")));
+        Tduracao.setEnabled(false);
+        Trepeticoes.setText(Integer.toString(bundle.getInt("repeticao")));
+        Trepeticoes.setEnabled(false);
+        Tseries.setText(Integer.toString(bundle.getInt("series")));
+        Tseries.setEnabled(false);
+        String tipo = bundle.getString("tipo");
+        if(tipo.equals("Exercício Cardiovascular")){
+            cardio.setChecked(true);
+            muscular.setChecked(false);
+            muscular.setEnabled(false);
+            cardio.setEnabled(false);
+        }else{
+            muscular.setChecked(true);
+            cardio.setChecked(false);
+            muscular.setEnabled(false);
+            cardio.setChecked(false);
         }
     }
 

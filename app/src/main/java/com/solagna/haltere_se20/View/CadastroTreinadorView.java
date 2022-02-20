@@ -33,8 +33,6 @@ public class CadastroTreinadorView extends AppCompatActivity {
                 salario = Integer.parseInt(findViewById(R.id.ptAddEmailTreinador).toString());
                 senha =   findViewById(R.id.ptAddSenhaTreinador).toString();
 
-
-
                 if(nome.isEmpty()||email.isEmpty()||cpf.isEmpty()||salario<0||senha.isEmpty()){
                     //toast mandando preencher tudo
                     Toast toast = Toast.makeText(getApplicationContext(), "Algum Campo Esta Sem Dados!", Toast.LENGTH_SHORT);

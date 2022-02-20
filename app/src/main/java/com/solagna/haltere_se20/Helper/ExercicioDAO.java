@@ -83,18 +83,29 @@ public class ExercicioDAO implements BaseDAO{
 
     @Override
     public boolean deletar(Object obj) {
-        Exercicio ex= (Exercicio) obj;
+        Exercicio aln= (Exercicio) obj;
+        DatabaseReference exercicios= bancoDeDados.child("Exercicios");
+        Query pesquisaExercicio = exercicios.orderByChild("id").equalTo(aln.getId());
+        pesquisaExercicio.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null){
+                    List<Exercicio> listaExercicio= new ArrayList<>();
+                    for(DataSnapshot dt: snapshot.getChildren()){
+                        Exercicio a =  dt.getValue(Exercicio.class);
+                        listaExercicio.add(a);
+                    }
+                    exercicios.child(listaExercicio.get(0).getId()).removeValue();
+                }
 
-        try {
-            String[] args = {ex.getNome().toString()};
-            escreve.delete(DataBase.TABELA_EXERCICIOS, "Nome=? ", args );
-            Log.i("INFO", "Exercicio removido com sucesso!");
-        }catch (Exception e){
-            Log.e("INFO", "Erro ao remover Exercicio " + e.getMessage() );
-            return false;
-        }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         return true;
-
     }
 
     @Override
@@ -105,8 +116,6 @@ public class ExercicioDAO implements BaseDAO{
 
 
     public List<Exercicio> listarExercicios() {
-        exercicios.clear();
-
         DatabaseReference exercicioDB= bancoDeDados.child("Exercicios");
         Query pesquisaExercicio = exercicioDB.orderByChild("id");
         pesquisaExercicio.addValueEventListener(new ValueEventListener() {
@@ -115,21 +124,21 @@ public class ExercicioDAO implements BaseDAO{
                 if(snapshot.getValue()!=null){
                     for(DataSnapshot dt: snapshot.getChildren()){
                         Exercicio a = dt.getValue(Exercicio.class);
-                        exercicios.add(a);
+                        exerciciosList.add(a);
+                        System.out.println("aaaaaaaa" + exerciciosList.size());
                     }
                 }
 
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-        return exercicios;
+        return exerciciosList;
     }
 
-    List<Exercicio> exercicios = new ArrayList<>();
+    List<Exercicio> exerciciosList = new ArrayList<>();
 
     public List<Exercicio> buscar(String busca) {
         List<Exercicio> exercicios = new ArrayList<>();

@@ -32,7 +32,7 @@ import com.solagna.haltere_se20.R;
 
 
 public class CriaEditaAlunoView extends AppCompatActivity {
-    private Button btAdicionarAluno,btExcluirAluno;
+    private Button btAdicionarAluno,btExcluirAluno, btAlunoTreino;
     private String nome, cpf, senha, email, cargaHoraria, observacoes, titulo;
     private int peso, altura;
     private AlunoController ec;
@@ -53,6 +53,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
         setTexts();
 
         btAdicionarAluno = findViewById(R.id.btAdicionarAluno);
+        btAlunoTreino = findViewById(R.id.btAdicionaTreinoAluno);
 
         atualizarTitulo();
         criarListeners();
@@ -74,11 +75,27 @@ public class CriaEditaAlunoView extends AppCompatActivity {
     }
 
     private void criarListeners() {
-
         btAdicionarAluno();
         btExcluirAluno();
+        btAlunoTreino();
         ec = new AlunoController(getApplicationContext());
     }
+
+    private void btAlunoTreino(){
+        btAlunoTreino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(titulo.equals(getString(R.string.TITULO_TREINADOR_MODIFICANDO))){
+                    Intent intent = new Intent(getApplicationContext(), AlunoTreinoView.class);
+                    intent.putExtra("nome", nome);
+                    intent.putExtra("cpf", cpf);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+    }
+
 
     private boolean getDados() {
 
@@ -174,7 +191,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
             public void onClick(View view) {
                 if(titulo.equals(getString(R.string.TITULO_TREINADOR_MODIFICANDO))){
                     if (ec.deletarAluno(nome, cpf, senha, email, cargaHoraria, observacoes, peso, altura)) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Atualizado com sucesso", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), "Removido com sucesso", Toast.LENGTH_SHORT);
                         toast.show();
                         finish();
                     }
@@ -200,6 +217,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
 
     private void editandoAluno(Bundle bundle){
         btExcluirAluno.setVisibility(View.VISIBLE);
+        btAlunoTreino.setVisibility(View.VISIBLE);
 
         Bundle dados = getIntent().getExtras();
         nome = dados.getString("nome");
@@ -229,6 +247,7 @@ public class CriaEditaAlunoView extends AppCompatActivity {
 
         //EditText cpf=  findViewById(R.id.ptCPFAluno);
         Tcpf.setText(bundle.getString("cpf"));
+        Tcpf.setEnabled(false);
 
         //EditText cargah=  findViewById(R.id.ptCargaHoraria);
         TcargaHoraria.setText(bundle.getString("cargaHoraria"));

@@ -44,8 +44,6 @@ public class AlunoDAO implements BaseDAO{
         bancoDeDados = FirebaseDatabase.getInstance().getReference().child("Pessoas");
         //DataBase = new DataBase( context );
         contextt = context;
-        escreve = MainController.db.getWritableDatabase();
-        le = MainController.db.getReadableDatabase();
     }
 
     @Override
@@ -82,6 +80,7 @@ public class AlunoDAO implements BaseDAO{
                     List<Aluno> listaAlunos= new ArrayList<>();
                     for(DataSnapshot dt: snapshot.getChildren()){
                         Aluno a =  dt.getValue(Aluno.class);
+                        a.setId(dt.getKey());
                         listaAlunos.add(a);
                     }
                     alunos.child(listaAlunos.get(0).getId()).setValue(aln);

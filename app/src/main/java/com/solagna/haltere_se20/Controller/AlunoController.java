@@ -41,7 +41,9 @@ public class AlunoController {
     }
 
     public List<Aluno> listarAlunos(){
-        return  alunoDAO.listarAlunos();
+        List<Aluno> teste =  alunoDAO.listarAlunos();
+        System.out.println("aaaaaaaa" + teste.size());
+        return  teste;
     }
 
 }
