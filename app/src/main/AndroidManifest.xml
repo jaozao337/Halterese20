@@ -9,6 +9,11 @@
         android:roundIcon="@drawable/iconclean"
         android:supportsRtl="true"
         android:theme="@style/Theme.Halterese20">
+        <service
+            android:name=".Helper.NotificacaoService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".View.AlunoTreinoView"
             android:exported="false" />

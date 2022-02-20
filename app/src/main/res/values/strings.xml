@@ -114,5 +114,7 @@
     <string name="SeuTreinoDeHoje">Seu Treino De Hoje</string>
     <string name="AquiDescricaoDoTreino">Aqui Vai A Descricao Do Treino</string>
     <string name="LoginWithEmail">Login Com E-mail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

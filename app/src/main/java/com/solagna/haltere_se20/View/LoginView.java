@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.InstallationTokenResult;
 import com.solagna.haltere_se20.Controller.LoginController;
 import com.solagna.haltere_se20.Data.DataBase;
 import com.solagna.haltere_se20.Helper.AlunoDAO;
@@ -47,6 +49,18 @@ public class LoginView extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.tela_login);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        FirebaseInstallations.getInstance().getToken(false).addOnCompleteListener(new OnCompleteListener<InstallationTokenResult>() {
+            @Override
+            public void onComplete(@NonNull Task<InstallationTokenResult> task) {
+                if(!task.isSuccessful()){
+                    return;
+                }
+                String token = task.getResult().getToken();
+                System.out.println("the token is: "+ token);
+
+            }
+        });
 
         btLogin = findViewById(R.id.btEntrar);
         btSouTreinador=findViewById(R.id.btEntrarTreinador);
